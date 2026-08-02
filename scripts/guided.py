@@ -35,18 +35,18 @@ def main():
              "--json", str(ovl), "--involutions", str(inv)],
             capture_output=True, check=True, timeout=300)
         overlay = json.loads(ovl.read_text())
-        cmd = [str(SADICAL), "-q", "-n"]
-        # Offline coverage does NOT predict filter safety (chessboard:
-        # 100% coverage, 54% hits). The gate is online: filter mode runs
-        # under probation (tplprobation/tplminhit defaults) and disables
-        # itself when measured template hit share is insufficient.
+        # Gate v3: every regime decision is made online (acceptance-keyed
+        # probation with template-hit veto, periodic re-probe). Structure
+        # detection is demoted to a prior: it supplies templates when
+        # found and sets the probation budget, nothing more.
+        cmd = [str(SADICAL), "-q", "-n", "--tplfilter=true"]
         if inv.stat().st_size > 0:
-            mode = (f"filter under probation "
-                    f"(coverage {overlay['coverage']:.0%}, "
-                    f"labels {overlay['labels']})")
-            cmd += ["--tplfilter=true", f"--template={inv}"]
+            cmd += [f"--template={inv}"]
+            mode = (f"gated with templates (coverage "
+                    f"{overlay['coverage']:.0%}, labels {overlay['labels']})")
         else:
-            mode = "stock (no structure detected)"
+            cmd += ["--tplprobation=100"]     # less to measure, smaller tax
+            mode = "gated, no templates (acceptance-only probation)"
         print(f"c guided: {mode}", file=sys.stderr)
         cmd += extra + [cnf] + proof
         r = subprocess.run(cmd)

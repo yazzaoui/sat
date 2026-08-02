@@ -16,6 +16,32 @@
    tseitin(50) documents why prune-off needs the acceptance conjunction:
    0% hits but 41% acceptance, and the hunt is worth timeout-vs-0.27 s.
 
+## Corrections and gate v3 (post-table)
+
+**uf rows corrected:** the sweep's uf SaDiCaL timings were parse
+failures (SATLIB double-space header; all arms failed identically in
+~5 ms). Real numbers: stock SDCL on uf100 = 0.54–7.3 s and uf250 =
+timeout(120 s), vs prune-off 0.01–2.45 s — **uf belongs to the overhead
+regime**, and the earlier "gate free on random" reading is withdrawn.
+The sweep now flags non-solver exits (`ARM-ERROR`).
+
+**Gate v3 (lead-approved):** prune-off is keyed on sustained low
+acceptance measured under probation — it works with zero templates
+(uf100: prune-off at 9% acceptance, 0.10 s vs 0.59 s stock). A high
+template hit share vetoes prune-off where templates exist (protects
+mchess at 14% acceptance via its 50% hits; protects tseitin(50) via 41%
+acceptance). Structure detection is demoted to a prior: supplies
+templates, sets probation budget. A disabled hunt is re-probed every
+`reprobeint` conflicts (verified cycling on mchess12).
+
+**Documented residuals (v3):** (a) hunt pays only late — mitigated by
+re-probe; (b) profitable hunt + stably low acceptance + structure that
+evades detection (mchess-without-detection is this class: measured
+timeout vs 1.4 s stock, though *bounded* by CDCL-mode cost, 2.16 s at
+n=12 with re-probes). Residual (b) is the price of fully-online
+gating; in deployment the structure prior covers the known instances of
+this class.
+
 Known structural limit: when a single unbudgeted reduct solve dominates
 (logistics.b–d, bmc-ibm-5) no verdict can fire; stock times out
 identically, so the gate never regresses. Inner-solve conflict budgeting

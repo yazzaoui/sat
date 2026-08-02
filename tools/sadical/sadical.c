@@ -1753,6 +1753,21 @@ static bool try_template_witness (Solver * solver, bool measure_only) {
 }
 
 static bool prune (Solver * solver) {
+  SaDiCaL * sadical = solver->sadical;
+  // Gate v3 re-probe: a disabled hunt is re-enabled and re-measured every
+  // 'reprobeint' conflicts — the honest mitigation for instances where
+  // the hunt pays only late (residual documented in the M2 doc).
+  if (sadical->templates.prune_disabled && solver == sadical->outer &&
+      sadical->opts.reprobeint > 0 &&
+      solver->local.conflicts >= sadical->templates.next_reprobe) {
+    sadical->opts.prune = true;
+    sadical->templates.prune_disabled = false;
+    sadical->templates.probes = sadical->templates.probe_hits = 0;
+    sadical->templates.window_attempts = 0;
+    sadical->templates.probation_start = 0;
+    MSG (1, "re-probing witness hunt at %ld conflicts",
+      solver->local.conflicts);
+  }
   if (!solver->level) return false;
   assert (solver->level < SIZE (solver->frames));
   Frame * f = solver->frames.begin + solver->level;
@@ -1761,7 +1776,6 @@ static bool prune (Solver * solver) {
     return false;
   }
   double start = sadical_process_time ();
-  SaDiCaL * sadical = solver->sadical;
   LOG ("pruning");
   assert (sadical->outer == solver);
   assert (sadical->opts.prune);
@@ -1788,12 +1802,12 @@ static bool prune (Solver * solver) {
     ev_conflicts = sadical->inner->local.conflicts;
     ev_decisions = sadical->inner->local.decisions;
   }
-  // Filter probation: while measuring, template results are accounting
-  // only and the reduct solve always runs — probation-phase behavior is
-  // exactly stock. Below 'tplminhit' the filter is permanently disabled —
-  // coverage alone does not predict filter safety (chessboard: 100%
-  // coverage, 54% hits; flat coloring: 100% coverage, 0% hits).
-  bool probation = sadical->templates.count && sadical->opts.tplfilter &&
+  // Gate v3 probation: runs whenever the gate is on, templates or not —
+  // every regime decision is made by online measurement (lead directive;
+  // offline structure detection only sets the probation budget upstream).
+  // While measuring, template results are accounting only and the reduct
+  // solve always runs — probation-phase behavior is exactly stock.
+  bool probation = sadical->opts.tplfilter &&
     sadical->templates.probes < sadical->opts.tplprobation;
   bool witness_found = try_template_witness (solver, probation);
   if (!witness_found &&
@@ -1820,32 +1834,40 @@ static bool prune (Solver * solver) {
           sadical->opts.tpltimecap));
     if (full || starved) {
       long probes = sadical->templates.probes;
+      bool have_templates = sadical->templates.count > 0;
       long hitpct = probes ? 100 * sadical->templates.probe_hits / probes : 0;
       long accpct =
         100 * probes / sadical->templates.window_attempts;
-      // Prune-off needs BOTH signals: no known structure move fits the
-      // witnesses AND witnesses are rare. Hit share alone misfires
-      // (tseitin(50): 0% hits but 41% acceptance — the hunt pays there);
-      // this conjunction classifies every instance class measured so far
-      // and is documented as a fitted heuristic, not a theorem.
-      if (hitpct < sadical->opts.tplpruneoff &&
-          accpct < sadical->opts.tplminaccept) {
-        sadical->opts.tplfilter = false;
+      // v3: acceptance is the primary online proxy for hunt value.
+      // Prune-off = sustained low acceptance, vetoed by a high template
+      // hit share when templates exist (tseitin(50): 0% hits but 41%
+      // acceptance — protected by acceptance; mchess: 14% acceptance but
+      // 50% hits — protected by the template veto). Fitted heuristic,
+      // not a theorem; residual failure mode (hunt pays only late, or
+      // profitable hunt with undetectable structure AND low acceptance)
+      // is mitigated by periodic re-probing ('reprobeint').
+      if (accpct < sadical->opts.tplminaccept &&
+          (!have_templates || hitpct < sadical->opts.tplpruneoff)) {
         sadical->opts.prune = false;
+        sadical->templates.prune_disabled = true;
+        sadical->templates.next_reprobe =
+          solver->local.conflicts + sadical->opts.reprobeint;
         MSG (1, "pruning disabled after probation "
           "(%ld%% hits, %ld%% acceptance%s)",
           hitpct, accpct, starved ? ", starved" : "");
-      } else if (hitpct < sadical->opts.tplminhit) {
-        // Partial hit share: direct template witnesses degrade steering
-        // (trajectory study), so revert to pure stock behavior.
+      } else if (have_templates && hitpct >= sadical->opts.tplminhit) {
+        MSG (1, "template filter confirmed by probation (%ld%% hits)",
+          hitpct);
+      } else {
+        // Hunt pays but templates (if any) are incomplete: direct
+        // template witnesses degrade steering (trajectory study), so
+        // revert to pure stock behavior.
         sadical->opts.tplfilter = false;
         sadical->templates.count = 0;
         MSG (1, "templates disabled after probation "
           "(%ld%% hits, %ld%% acceptance)", hitpct, accpct);
-      } else
-        MSG (1, "template filter confirmed by probation (%ld%% hits)",
-          hitpct);
-      // Any verdict ends probation.
+      }
+      // Any verdict ends this probation window.
       sadical->templates.probes = sadical->opts.tplprobation;
     }
   }

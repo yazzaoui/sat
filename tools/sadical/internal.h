@@ -46,6 +46,7 @@ OPTION(tplpruneoff,int,5,0,100,"below this hit %% disable pruning entirely") \
 OPTION(tplminaccept,int,25,0,100,"prune-off also needs acceptance %% below this") \
 OPTION(tpltimecap,double,5.0,0,1e9,"probation wall-clock cap in seconds (0=off)") \
 OPTION(harvest,int,0,0,3,"transfer inner activity out (1=fail,2=succ,3=both)") \
+OPTION(reprobeint,int,50000,0,INT_MAX,"re-probe disabled hunt after this many conflicts (0=off)") \
 OPTION(seed,int,0,0,3,"reduct seeding from conflict analysis (1=order,2=phase,3=both)") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
@@ -517,6 +518,8 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
     long probes, probe_hits;	// Filter probation window counters.
     long window_attempts;	// All prune attempts during probation.
     double probation_start;	// Process time of first probation attempt.
+    bool prune_disabled;	// Hunt switched off by a gate verdict.
+    long next_reprobe;		// Conflict count for the next re-probe.
     bool via_template;		// Last accept came from a template.
     bool via_warm;		// Last accept was warm-started.
   } templates;
