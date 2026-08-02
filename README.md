@@ -66,7 +66,7 @@ Everything re-earns itself from a clean clone in ~3 minutes:
 [REPRODUCING.md](witness-search/REPRODUCING.md) (12 deterministic
 checks — conflict counts, gate verdicts, proof verifications).
 
-## Workstream 2: landscape-surgery — **active**
+## Workstream 2: landscape-surgery — **complete, closed by proof**
 
 The successor question, one level up the proof-system hierarchy.
 A local search or CDCL run lives on a landscape: assignments are

@@ -1,5 +1,15 @@
 # L1 amendment 1 — the baseline floor (pre-comparison, lead-directed)
 
+**CLOSURE NOTE (post-approval):** the amendment was approved with all
+four clauses, and execution of clause 3 ended the phase: while
+formalizing the sibling bars ("fraction of solution pairs connected
+below the uniform ridge"), that metric was proven unsatisfiable for
+any definitional-extension arm — see
+[extension-inertness-theorems.md](extension-inertness-theorems.md).
+No sibling bars were registered, no arms were run; the L-series
+completed by proof. Clauses 2's control and the sibling soundness gate
+were parked unexecuted (nothing speculative finished, per direction).
+
 Committed before any inter-arm comparison. Trigger: pre-run
 measurements at the anchor found the registered bars degenerate.
 Approval gates all L1 arm runs.

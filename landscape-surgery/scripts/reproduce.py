@@ -89,6 +89,53 @@ def main():
     else:
         check("L0 calibration data present", False, "docs/L0-results-data.json missing")
 
+    # 4. Empirical anchors of the extension-inertness theorems.
+    sys.path.insert(0, str(WS / "extvars"))
+    import cook                                        # noqa: E402
+    nv, cl = cook.php_clauses(4)
+    a4 = work / "armA_php4.cnf"
+    cook.write_dimacs(a4, nv, cl)
+    e = exact_probe(a4)
+    check("UNSAT PHP(4) baseline = single plateau system",
+          e["basins"] == 1 and e["min_V"] == 1 and e["n_min_states"] == 60
+          and e["lex_basins"] == 24,
+          f"basins={e['basins']} lex-artifact={e['lex_basins']}")
+    nb, clb = cook.arm_b_formula(4)
+    b4 = work / "armB_php4.cnf"
+    cook.write_dimacs(b4, nb, clb)
+    e = exact_probe(b4)
+    check("Cook cascade fragments anchor 1 -> 115",
+          e["basins"] == 115 and e["barrier_max"] == 4,
+          f"basins={e['basins']} barrier_max={e['barrier_max']}")
+    h = 4
+    var = lambda i, j: (i - 1) * h + j                 # noqa: E731
+    cl44 = [[var(i, j) for j in range(1, h + 1)] for i in range(1, 5)]
+    for j in range(1, h + 1):
+        for i in range(1, 5):
+            for k in range(i + 1, 5):
+                cl44.append([-var(i, j), -var(k, j)])
+    s44 = work / "php44.cnf"
+    cook.write_dimacs(s44, 16, cl44)
+    e = exact_probe(s44)
+    check("SAT sibling PHP(4,4): 24 isolated solution basins, ridge 1",
+          e["basins"] == 24 and e["n_min_states"] == 24
+          and e["barrier_max"] == 1 and e["min_V"] == 0,
+          f"basins={e['basins']} ridge={e['barrier_max']}")
+    # Cook logic gate (permanent, per L1 registration gate 1)
+    import subprocess as sp
+    for p in (4, 5):
+        nvp, clp = cook.php_clauses(p)
+        cnf = work / f"gate{p}.cnf"
+        cook.write_dimacs(cnf, nvp, clp)
+        _, _, proof, _ = cook.cascade(p)
+        drat = work / f"gate{p}.drat"
+        cook.write_proof(drat, proof)
+        DPR = WS.parent / "common/tools/dpr-trim/dpr-trim"
+        r = sp.run([str(DPR), str(cnf), str(drat)],
+                   capture_output=True, text=True)
+        check(f"Cook logic gate PHP({p})", "s VERIFIED" in r.stdout,
+              "dpr-trim VERIFIED" if "s VERIFIED" in r.stdout else "FAILED")
+
     n_ok = sum(results)
     print(f"\n{n_ok}/{len(results)} checks passed")
     sys.exit(0 if n_ok == len(results) else 1)
