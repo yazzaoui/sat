@@ -1,0 +1,15 @@
+done php(8): cadical=UNSAT/0.03s sadical=UNSAT/0.01s verified=yes
+done php(9): cadical=UNSAT/0.26s sadical=UNSAT/0.01s verified=yes
+done php(10): cadical=UNSAT/3.2s sadical=UNSAT/0.01s verified=yes
+done php(11): cadical=UNSAT/56.69s sadical=UNSAT/0.02s verified=yes
+done php(12): cadical=timeout/300.0s sadical=UNSAT/0.03s verified=yes
+done php(13): cadical=timeout/300.0s sadical=UNSAT/0.06s verified=yes
+
+| family | size | cadical_status | cadical_time | cadical_conflicts | sadical_status | sadical_time | sadical_conflicts | proof_verified | verify_time |
+|---|---|---|---|---|---|---|---|---|---|
+| php | 8 | UNSAT | 0.03 | 6730 | UNSAT | 0.01 | 159 | yes | 0.02 |
+| php | 9 | UNSAT | 0.26 | 50191 | UNSAT | 0.01 | 215 | yes | 0.02 |
+| php | 10 | UNSAT | 3.2 | 392987 | UNSAT | 0.01 | 287 | yes | 0.03 |
+| php | 11 | UNSAT | 56.69 | 4052114 | UNSAT | 0.02 | 377 | yes | 0.03 |
+| php | 12 | timeout | 300.0 | None | UNSAT | 0.03 | 487 | yes | 0.03 |
+| php | 13 | timeout | 300.0 | None | UNSAT | 0.06 | 619 | yes | 0.05 |

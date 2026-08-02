@@ -1,0 +1,13 @@
+done mchess(6): cadical=UNSAT/0.0s sadical=UNSAT/0.0s verified=yes
+done mchess(8): cadical=UNSAT/0.0s sadical=UNSAT/0.02s verified=yes
+done mchess(10): cadical=UNSAT/0.05s sadical=UNSAT/0.09s verified=yes
+done mchess(12): cadical=UNSAT/0.77s sadical=UNSAT/0.26s verified=yes
+done mchess(14): cadical=UNSAT/20.95s sadical=UNSAT/1.41s verified=yes
+
+| family | size | cadical_status | cadical_time | cadical_conflicts | sadical_status | sadical_time | sadical_conflicts | proof_verified | verify_time |
+|---|---|---|---|---|---|---|---|---|---|
+| mchess | 6 | UNSAT | 0.0 | 37 | UNSAT | 0.0 | 533 | yes | 0.02 |
+| mchess | 8 | UNSAT | 0.0 | 578 | UNSAT | 0.02 | 2426 | yes | 0.03 |
+| mchess | 10 | UNSAT | 0.05 | 8080 | UNSAT | 0.09 | 19928 | yes | 0.03 |
+| mchess | 12 | UNSAT | 0.77 | 99448 | UNSAT | 0.26 | 39848 | yes | 0.09 |
+| mchess | 14 | UNSAT | 20.95 | 1453143 | UNSAT | 1.41 | 279631 | yes | 0.12 |

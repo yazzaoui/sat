@@ -1,0 +1,7 @@
+done mchess(16): cadical=UNSAT/134.43s sadical=UNSAT/7.51s verified=yes
+done mchess(18): cadical=timeout/300.0s sadical=UNSAT/44.43s verified=yes
+
+| family | size | cadical_status | cadical_time | cadical_conflicts | sadical_status | sadical_time | sadical_conflicts | proof_verified | verify_time |
+|---|---|---|---|---|---|---|---|---|---|
+| mchess | 16 | UNSAT | 134.43 | 5249256 | UNSAT | 7.51 | 1008742 | yes | 0.38 |
+| mchess | 18 | timeout | 300.0 | None | UNSAT | 44.43 | 3890137 | yes | 1.6 |

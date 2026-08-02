@@ -1,0 +1,11 @@
+done tseitin(20): cadical=UNSAT/0.02s sadical=UNSAT/0.03s verified=yes
+done tseitin(30): cadical=UNSAT/1.12s sadical=UNSAT/0.06s verified=yes
+done tseitin(40): cadical=UNSAT/99.75s sadical=UNSAT/1.07s verified=yes
+done tseitin(50): cadical=timeout/300.0s sadical=UNSAT/0.19s verified=yes
+
+| family | size | cadical_status | cadical_time | cadical_conflicts | sadical_status | sadical_time | sadical_conflicts | proof_verified | verify_time |
+|---|---|---|---|---|---|---|---|---|---|
+| tseitin | 20 | UNSAT | 0.02 | 5663 | UNSAT | 0.03 | 3360 | yes | 0.04 |
+| tseitin | 30 | UNSAT | 1.12 | 178515 | UNSAT | 0.06 | 7316 | yes | 0.05 |
+| tseitin | 40 | UNSAT | 99.75 | 3027963 | UNSAT | 1.07 | 162220 | yes | 0.29 |
+| tseitin | 50 | timeout | 300.0 | None | UNSAT | 0.19 | 25868 | yes | 0.06 |

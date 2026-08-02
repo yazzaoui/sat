@@ -1,0 +1,15 @@
+SaDiCaL is a Satisfaction Driven Clause Learning (SDCL) SAT Solver.
+Beside standard conflict clauses it also learns Set Propagation
+Redundant (SPR) clauses, by checking the (filtered) positive reduct
+of the current partial assignment to be satisfiable.
+
+To build and test use
+
+  ./configure.sh && make test
+
+You can compile with debugging, checking or logging support too. See
+
+  ./configure. -h
+
+for configuration options.  By default the code is optimized and neither
+assertion checking nor logging code is included.

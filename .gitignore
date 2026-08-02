@@ -1,0 +1,7 @@
+tools/cadical/
+tools/dpr-trim/
+tools/sadical.zip
+benchmarks/cnf/
+benchmarks/proofs/
+*.o
+*.a
