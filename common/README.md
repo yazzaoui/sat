@@ -31,6 +31,15 @@ Build all three:
 ( cd tools/dpr-trim && make )
 ```
 
+## Shared probe (landscape-surgery/probes/exact.c)
+
+The exact merge-tree core is shared by all landscape streams. Two
+flag-gated modes were added under the change policy (stock behavior
+byte-identical, verified by the reproduce suites): `--pairs <targets>`
+emits pairwise merge levels for target states (S3 barriers), and
+`--basis <masks>` replaces unit flips with arbitrary move masks
+(S4, Theorem G duality).
+
 ## DISCIPLINE.md
 
 The research protocol: pre-registration, determinism and validation

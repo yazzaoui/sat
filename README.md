@@ -109,13 +109,32 @@ descent-partition definitions, which much fitness-landscape literature
 builds on. Two successor programs are named (bijective-surgery
 selection; the coupled-move substrate) but deliberately not started.
 
+## The stream program (successors, all run to closed verdicts)
+
+After the two founding workstreams closed, the program continued as
+short registered streams, each ending in a one-sentence ledger entry
+([LEDGER.md](LEDGER.md) — the whole program in nine sentences):
+
+| Stream | Question | Verdict (short form) |
+|---|---|---|
+| [S1 coupled-moves/](coupled-moves/) | Does propagation-coupled dynamics show structure 1-flip geometry cannot? | Closed by Theorem F: net conductance is a counting identity, blind to definition content |
+| [S2 plateau-structure/](plateau-structure/) | Do folklore secondary signals structure the plateau? | No — and walking them is at best sub-1.5×, at worst a trap; the flat is flat all the way down |
+| [S3 clustering-transition/](clustering-transition/) | Does the statistical-physics clustering picture hold at enumerable sizes? | Signatures inverted or absent at n ≤ 24; the narrative's geometry has a measurable onset (~n=26) |
+| [S4 affine-surgery/](affine-surgery/) | Can basin-merging scores discover basis changes blind? | Rediscovers in-class optima on pure XOR; dies at its decision cell — the one-op horizon |
+
+Each stream folder carries its lead-issued frame (SPEC.md),
+registrations committed before runs, results with raw data, and its
+own `scripts/reproduce.py`.
+
 ## Repository layout
 
 | Where | What |
 |---|---|
+| [LEDGER.md](LEDGER.md) | One sentence per closed question — nine entries, the program's abstract |
 | [witness-search/](witness-search/) | Complete workstream: [SPEC](witness-search/SPEC.md) · [RESULTS](witness-search/RESULTS.md) · [REPRODUCING](witness-search/REPRODUCING.md) · docs (pre-registrations + results) · scripts · benchmarks |
-| [landscape-surgery/](landscape-surgery/) | Complete workstream (closed by proof): [SPEC](landscape-surgery/SPEC.md) · [RESULTS](landscape-surgery/RESULTS.md) · [theorems](landscape-surgery/docs/extension-inertness-theorems.md) · probes/ · extvars/ |
-| [common/](common/) | Shared: seeded instance generators; solvers & proof checker (patched SaDiCaL tracked in-repo; CaDiCaL + dpr-trim pinned externals); [DISCIPLINE.md](common/DISCIPLINE.md) — the protocol both workstreams run under |
+| [landscape-surgery/](landscape-surgery/) | Complete workstream (closed by proof): [SPEC](landscape-surgery/SPEC.md) · [RESULTS](landscape-surgery/RESULTS.md) · [theorems](landscape-surgery/docs/extension-inertness-theorems.md) · probes/ (exact merge-tree core + flag-gated `--pairs`/`--basis` modes) · extvars/ |
+| [coupled-moves/](coupled-moves/) · [plateau-structure/](plateau-structure/) · [clustering-transition/](clustering-transition/) · [affine-surgery/](affine-surgery/) | The four closed streams (table above) |
+| [common/](common/) | Shared: seeded instance generators; solvers & proof checker (patched SaDiCaL tracked in-repo; CaDiCaL + dpr-trim pinned externals); [DISCIPLINE.md](common/DISCIPLINE.md) — the protocol everything runs under |
 
 ## The discipline (why you can trust the claims)
 
@@ -128,9 +147,20 @@ results are published with the same care as wins — most of the value
 here *is* the carefully-measured negatives. See
 [common/DISCIPLINE.md](common/DISCIPLINE.md).
 
+## Reproduction
+
+Witness-search: [REPRODUCING.md](witness-search/REPRODUCING.md)
+(clean-clone, 12 checks). Every other workstream/stream:
+`python3 <dir>/scripts/reproduce.py` after building the probes
+(`make -C landscape-surgery/probes`, and the toolchain per
+[common/README.md](common/README.md)). All suites are deterministic;
+pinned values are the papers' headline numbers.
+
 ## Tags
 
 - `m1-baseline` — frozen witness-search measurement dataset.
 - `boundary-map-v1` — witness-search complete (pre-reorganization
   layout; the reproduction suite has been re-verified on the current
   layout since).
+- `landscape-surgery-v1` — second workstream complete, closed by
+  proof.
