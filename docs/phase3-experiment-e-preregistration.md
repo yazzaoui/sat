@@ -1,5 +1,39 @@
 # Experiment E (amortization: persistent inner solver) — pre-registration
 
+## TERMINATED PRE-BUILD (2026-08-02) — measurement dissolved the win bar
+
+Following the registration's own cost-structure section one level deeper
+before implementation:
+
+1. Mid-run reducts copy only ~35 clauses (outer simplification shrinks
+   the live set; `copied` falls 127→35 over the mchess14 run). The
+   96% clause overlap is real, but the shared clauses cost ~nothing to
+   rebuild — the mechanism's target (clause loading) is already cheap.
+2. The dominant hunt cost is the **filtered** reduct construction:
+   filtering = 55%/58% of total process time on mchess14/16 (1.02 M
+   UP-based filter checks), 26% on tseitin40; pruning path ≈ 98%
+   everywhere. Filter verdicts depend on the full current trail via
+   unit propagation with assumed literals — **trail-global, not
+   clause-local** — so clause-identity persistence cannot touch them.
+3. Arithmetic: with filtering untouchable at 55%+, the win bar
+   (pruning-path time ≤ 0.5×) is unreachable on the primary family
+   even if scan and teardown costs go to zero.
+
+Boundary sentence, E's contribution despite never running: **the hunt's
+expensive computation is trail-global (filter verdicts), not
+clause-local (loading); persistence amortizes clause identity, but the
+cost is not stored in clause identity.** The activation-literal design
+also had an independent defect found pre-build (inactive activation
+variables blow up the inner `all_assigned` SAT condition), recorded for
+completeness.
+
+Named successor, if amortization is pursued: delta-stable filtering —
+feasibility question: what fraction of filter verdicts change per
+8-literal trail delta? Requires instrumentation (verdicts are not in
+existing logs); would need its own registration with a fidelity bar,
+since approximate filtering changes the reduct and therefore steering.
+The registration below is preserved unedited for the record.
+
 Committed before implementation. Feasibility basis:
 `amortization-feasibility.md` — consecutive reducts share 93–96% of
 clauses (median), trail deltas 3–8 literals, 60% overlap at lag 50.
