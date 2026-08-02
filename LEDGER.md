@@ -78,3 +78,15 @@ verification, reproduction). Newest last.
    corridor-connected clusters in a flat. Confounds row-annotated;
    claims scoped to the finite-size shadow, not the asymptotics.
    ([clustering-transition/RESULTS.md](clustering-transition/RESULTS.md))
+9. **[S4 affine-surgery, closed]** Score-guided basis selection
+   rediscovers the in-class Gaussian optimum on pure XOR exactly and
+   always beats random — but at its decision cell it fails as
+   registered: on chain-hidden parity, basin merging is invisible to
+   every single elementary operation on 2 of 5 instances, informed
+   candidates buy nothing over blind, and the constructive claim dies
+   at the one-op horizon P0's spike foreshadowed. The bijective door
+   is walkable only where the structure is one step deep; crossing
+   deeper structure requires composite moves whose intermediate steps
+   score worse — the value, once again, lives behind terrain the
+   greedy signal cannot see.
+   ([affine-surgery/RESULTS.md](affine-surgery/RESULTS.md))
