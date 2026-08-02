@@ -21,6 +21,18 @@ threshold numerics Mertens–Mézard–Zecchina):
 - Freezing (frozen variables — variables constant across a cluster —
   in dominant clusters): for k=3 predicted only very near α_s
   (≈ 4.254+); at lower α clusters are predicted unfrozen.
+- **Object-mapping caveat (lead-required, cuts against US):** what S3
+  measures is *1-flip connected components of the exact solution set* —
+  the standard finite-n operationalization. What the replica theory
+  describes is *pure states* — a thermodynamic decomposition believed
+  to correspond to flip-connectivity clusters but not definitionally
+  identical to them; parts of the literature's cluster notions permit
+  o(n)-Hamming connectivity rather than strict adjacency. Therefore a
+  discordant verdict reads "the flip-connectivity geometry at
+  accessible n does not match the narrative's finite-size shadow" —
+  NEVER "the replica prediction is wrong" — because a definitional gap
+  between measured object and theoretical object is a live third
+  explanation, named here before any discordance exists to tempt us.
 - **Rigor caveat, part of the registration:** shattering is PROVEN for
   large k (k ≥ 8 lineage, Achlioptas–Coja-Oghlan); for k=3 the
   quantitative picture is a replica prediction. S3 measures against
