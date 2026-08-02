@@ -60,10 +60,11 @@ static int cmp_u32 (const void *a, const void *b) {
 
 int main (int argc, char **argv) {
   int do_lex = 0;
-  const char *path = 0, *pairs_path = 0;
+  const char *path = 0, *pairs_path = 0, *basis_path = 0;
   for (int i = 1; i < argc; i++) {
     if (!strcmp (argv[i], "--lex")) do_lex = 1;
     else if (!strcmp (argv[i], "--pairs")) pairs_path = argv[++i];
+    else if (!strcmp (argv[i], "--basis")) basis_path = argv[++i];
     else path = argv[i];
   }
   if (!path) { fprintf (stderr, "usage: exact [--lex] cnf\n"); return 1; }
@@ -99,6 +100,21 @@ int main (int argc, char **argv) {
   if (n_vars < 1 || n_vars > 26) { fprintf (stderr, "n out of range\n"); return 1; }
   N = 1ull << n_vars;
   const uint32_t ALL = (uint32_t) (N - 1);
+
+  // S4: generalized move basis (Theorem G duality) — neighbor b is
+  // s ^ basis[b]. Default = unit flips; stock behavior unchanged.
+  uint32_t basis[32];
+  for (int b = 0; b < n_vars; b++) basis[b] = 1u << b;
+  if (basis_path) {
+    FILE *bf = fopen (basis_path, "r");
+    if (!bf) { perror (basis_path); return 1; }
+    unsigned long long u;
+    for (int b = 0; b < n_vars; b++) {
+      if (fscanf (bf, "%llu", &u) != 1) { fprintf (stderr, "basis short\n"); return 1; }
+      basis[b] = (uint32_t) u;
+    }
+    fclose (bf);
+  }
 
   if (pairs_path) {
     FILE *tf = fopen (pairs_path, "r");
@@ -171,7 +187,7 @@ int main (int argc, char **argv) {
       }
     }
     for (int b = 0; b < n_vars; b++) {
-      uint32_t nb = s ^ (1u << b);
+      uint32_t nb = s ^ basis[b];
       if (parent[nb] == 0xffffffffu) continue;
       uint32_t r1 = find (s), r2 = find (nb);
       if (r1 == r2) continue;
@@ -230,7 +246,7 @@ int main (int argc, char **argv) {
       uint32_t s = order[i];
       uint32_t best = s;
       for (int b = 0; b < n_vars; b++) {
-        uint32_t nb = s ^ (1u << b);
+        uint32_t nb = s ^ basis[b];
         if (V[nb] < V[best] || (V[nb] == V[best] && nb < best)) best = nb;
       }
       dest[s] = (best == s) ? s : dest[best];
