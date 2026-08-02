@@ -68,24 +68,33 @@ flip* is the load-bearing intelligence; any geometric constraint on the
 core costs ~3× on tilings. Direct, warm, and filter integrations all
 confirm this from different angles.
 
-## Where templates DO pay: complete-coverage counting instances
+## Filter mode on competition instances — claim CORRECTED by probation
 
-Filter mode on SATLIB competition instances (100% counting coverage on
-flat100 graph coloring; structure recovery is blind):
+First measurement (filter without probation) showed flat100 coloring
+collapsing from 1–120 s+ stock to 0.01–0.02 s. **The initial reading
+("smart filtering") was wrong.** Honest probation (measure template hit
+share against ground-truth reduct solves before trusting the filter)
+revealed **0% template hits on flat100** — filter mode was skipping every
+reduct solve, i.e. silently reducing SDCL to plain CDCL, which is what is
+actually fast on coloring instances.
 
-| Instance | stock SaDiCaL | filter mode | CaDiCaL |
-|---|---|---|---|
-| flat100-1 | 1.16 s | **0.01 s** | 0.01 s |
-| flat100-10 | **timeout 120 s** | **0.01 s** | — |
-| flat100-43 | 8.75 s | **0.01 s** | — |
-| flat100-57 | 1.14 s | **0.02 s** | — |
-| flat100-80 | 2.03 s | **0.01 s** | — |
+Corrected finding: **SDCL's witness hunt is pure overhead on coloring
+instances, and the machinery detects this online.** The auto-gate is a
+probation window (`--tplprobation`, default 200 witness-bearing attempts;
+`--tplminhit`, default 90%): filter stays only if measured hit share
+clears the bar. Measured verdicts:
 
-Structure-aware filtering eliminates SDCL's witness-hunt pathology
-(spec §1.2) on a real instance class — SaDiCaL becomes CaDiCaL-competitive
-where stock loses by 100×–∞. On partial coverage (logistics 38–55%)
-filter mode is harmful, consistent with the chessboard result. Rule:
-**gate filter mode on detected-coverage completeness.**
+| Instance | Probation verdict | Behavior after |
+|---|---|---|
+| php(12) | confirmed, 100% hits | lossless filter, 0.03 s |
+| mchess(14) | disabled, 54% hits | reverts to stock, 8.4 s (was ∞) |
+| flat100-1 | disabled, 0% hits | reverts to stock |
+
+Offline coverage does NOT predict filter safety (chessboard: 100%
+coverage, 54% hits; flat100: 100% coverage, 0% hits) — the gate must be
+online. The four-arm sweep (CaDiCaL / stock / prune-off / probation
+filter) across the coverage spectrum decomposes every win into its true
+cause; results in `benchmarks/results/filter_sweep.csv`.
 
 ## Design conclusions (input to the dynamic proposer)
 

@@ -1706,10 +1706,30 @@ static bool prune (Solver * solver) {
     ev_decisions = sadical->inner->local.decisions;
   }
   bool witness_found = try_template_witness (solver);
+  // Filter probation: while measuring, never skip the reduct solve, so
+  // template hit share is judged against ground truth (witness existed).
+  // Below 'tplminhit' the filter is permanently disabled — coverage alone
+  // does not predict filter safety (chessboard: 100% coverage, 58% hits).
+  bool probation = sadical->templates.count && sadical->opts.tplfilter &&
+    sadical->templates.probes < sadical->opts.tplprobation;
   if (!witness_found &&
-      (sadical->templates.via_warm ||
+      (probation || sadical->templates.via_warm ||
        !(sadical->templates.count && sadical->opts.tplfilter)))
     witness_found = reduct_satisfiable (solver);
+  if (probation && witness_found) {
+    sadical->templates.probes++;
+    if (sadical->templates.via_template || sadical->templates.via_warm)
+      sadical->templates.probe_hits++;
+    if (sadical->templates.probes >= sadical->opts.tplprobation) {
+      long pct =
+        100 * sadical->templates.probe_hits / sadical->templates.probes;
+      if (pct < sadical->opts.tplminhit) {
+        sadical->opts.tplfilter = false;
+        MSG (1, "template filter disabled after probation (%ld%% hits)", pct);
+      } else
+        MSG (1, "template filter confirmed by probation (%ld%% hits)", pct);
+    }
+  }
   if (witness_found) {
     LOG ("pruning successful");
     MSG (3, "pruning successful");

@@ -40,6 +40,8 @@ OPTION(tplbalance,bool,true,0,1,"balance-restart accounting on template accepts"
 OPTION(tplmode,bool,true,0,1,"relevant-mode switch on template accepts") \
 OPTION(tplfilter,bool,false,0,1,"template miss skips the reduct solve") \
 OPTION(tplwarm,bool,false,0,1,"template hit warm-starts the reduct solve") \
+OPTION(tplprobation,int,200,0,INT_MAX,"filter probation window (attempts)") \
+OPTION(tplminhit,int,90,0,100,"min template hit %% to keep filtering") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
 OPTION(verbose,int,1,0,5,"verbose level") \
@@ -506,6 +508,7 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
     int max_var;		// Largest variable mentioned in templates.
     long tried, accepted;	// Statistics.
     long warm;			// Warm-started reduct solves.
+    long probes, probe_hits;	// Filter probation window counters.
     bool via_template;		// Last accept came from a template.
     bool via_warm;		// Last accept was warm-started.
   } templates;

@@ -1,0 +1,7 @@
+instance,coverage,labels,struct_time,cadical,cadical_exit,stock,stock_exit,pruneoff,pruneoff_exit,filter,filter_exit
+flat50-1,1.0,counting,0.09,0.008,10,0.081,10,0.005,10,0.076,10
+flat50-10,1.0,counting,0.08,0.006,10,0.021,10,0.004,10,0.023,10
+flat50-100,1.0,counting,0.08,0.006,10,0.042,10,0.004,10,0.039,10
+flat50-1000,1.0,counting,0.07,0.005,10,0.406,10,0.004,10,0.41,10
+flat50-101,1.0,counting,0.07,0.004,10,0.238,10,0.004,10,0.248,10
+flat75-1,1.0,counting,0.07,0.005,10,0.334,10,0.006,10,0.334,10

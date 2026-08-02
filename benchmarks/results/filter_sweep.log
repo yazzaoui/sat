@@ -1,0 +1,6 @@
+flat50-1: cov=100% labels=counting cadical=0.008 stock=0.081 filter=0.076
+flat50-10: cov=100% labels=counting cadical=0.006 stock=0.021 filter=0.023
+flat50-100: cov=100% labels=counting cadical=0.006 stock=0.042 filter=0.039
+flat50-1000: cov=100% labels=counting cadical=0.005 stock=0.406 filter=0.41
+flat50-101: cov=100% labels=counting cadical=0.004 stock=0.238 filter=0.248
+flat75-1: cov=100% labels=counting cadical=0.005 stock=0.334 filter=0.334
