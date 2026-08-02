@@ -87,22 +87,34 @@ The hypothesis under test:
 > proofs — measurably merge basins of the search landscape, and
 > basin-merging is usable as a selection score.**
 
-Phases (each with pre-registered kill criteria,
-[SPEC.md](landscape-surgery/SPEC.md)): build and calibrate landscape
-probes on the XOR case where the answer is known (L0); measure whether
-Cook's classic pigeonhole extension variables merge basins where
-compression-selected and random variables don't (L1); generalize (L2);
-then, only if the criterion survives, use it to select variables and
-race it against the syntactic state of the art (L3). Either direction
-of outcome is a first-time measurement of *why* the strongest proof
-system resists automation — or a selection principle for it.
+How it ended (details: [RESULTS.md](landscape-surgery/RESULTS.md)):
+the probes passed their calibration gate at full strength (100/100
+cells see the XOR smoothing), and then the program completed one level
+deeper than its experiments — **by theorem**. Two short proofs
+([the theorems](landscape-surgery/docs/extension-inertness-theorems.md))
+show that functional extension variables cannot merge solution
+clusters on assignment landscapes under bit-flip adjacency: they are
+*inert* when altitude ignores them (product theorem) and
+*isolation-preserving-or-fragmenting* when it counts them (verified
+against a measured 1 → 115 fragmentation). The founding analogy had
+conflated two operators: Gaussian elimination *rewires* adjacency
+(bijective — and genuinely merges, as calibration showed), while
+extension *adds dimensions* keeping old adjacency. ER's power must
+therefore enter through **move structure** — walkers that flip and
+propagate in one step — not through terrain. Along the way, a
+standalone descriptive discovery: the UNSAT pigeonhole refutation
+landscape is one undifferentiated plateau system; its apparent
+"ruggedness" at measured sizes is an artifact of tie-breaking in
+descent-partition definitions, which much fitness-landscape literature
+builds on. Two successor programs are named (bijective-surgery
+selection; the coupled-move substrate) but deliberately not started.
 
 ## Repository layout
 
 | Where | What |
 |---|---|
 | [witness-search/](witness-search/) | Complete workstream: [SPEC](witness-search/SPEC.md) · [RESULTS](witness-search/RESULTS.md) · [REPRODUCING](witness-search/REPRODUCING.md) · docs (pre-registrations + results) · scripts · benchmarks |
-| [landscape-surgery/](landscape-surgery/) | Active workstream: [SPEC](landscape-surgery/SPEC.md) · [RESULTS](landscape-surgery/RESULTS.md) (scaffold) · probes/ · extvars/ |
+| [landscape-surgery/](landscape-surgery/) | Complete workstream (closed by proof): [SPEC](landscape-surgery/SPEC.md) · [RESULTS](landscape-surgery/RESULTS.md) · [theorems](landscape-surgery/docs/extension-inertness-theorems.md) · probes/ · extvars/ |
 | [common/](common/) | Shared: seeded instance generators; solvers & proof checker (patched SaDiCaL tracked in-repo; CaDiCaL + dpr-trim pinned externals); [DISCIPLINE.md](common/DISCIPLINE.md) — the protocol both workstreams run under |
 
 ## The discipline (why you can trust the claims)
