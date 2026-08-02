@@ -5454,6 +5454,62 @@
   "family_20_09_revalidation": {
    "initial_R200_rho": 0.76,
    "R500_rho": 0.893
+  },
+  "estimator_noise": {
+   "final_R": {
+    "0.7": 200,
+    "0.9": 500
+   },
+   "cells_completed": "6/8 (n=60/0.9 pair interrupted; not needed \u2014 see saturation note)",
+   "families": {
+    "40/0.7": [
+     {
+      "gen_seed": 1,
+      "mean": 182.8,
+      "sd": 3.69,
+      "cv": 0.02
+     },
+     {
+      "gen_seed": 2,
+      "mean": 197.5,
+      "sd": 2.07,
+      "cv": 0.01
+     }
+    ],
+    "40/0.9": [
+     {
+      "gen_seed": 1,
+      "mean": 472.6,
+      "sd": 5.18,
+      "cv": 0.011,
+      "near_saturation": true
+     },
+     {
+      "gen_seed": 2,
+      "mean": 478.9,
+      "sd": 6.42,
+      "cv": 0.013,
+      "near_saturation": true
+     }
+    ],
+    "60/0.7": [
+     {
+      "gen_seed": 1,
+      "mean": 199.9,
+      "sd": 0.35,
+      "cv": 0.002,
+      "saturated": true
+     },
+     {
+      "gen_seed": 2,
+      "mean": 200.0,
+      "sd": 0.0,
+      "cv": 0.0,
+      "saturated": true
+     }
+    ]
+   },
+   "reading": "Unsaturated estimator noise CV <= 0.02. basins_est is bounded above by R: estimates at/near R are saturated lower bounds with artificially small variance \u2014 comparisons require the saturation guard registered in L1."
   }
  }
 }
