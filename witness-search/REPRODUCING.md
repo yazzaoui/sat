@@ -15,7 +15,7 @@ is tracked in this repository under common/tools/sadical. CaDiCaL and dpr-trim a
 pinned by commit:
 
 ```sh
-git clone <this-repo> pnp && cd pnp
+git clone https://github.com/yazzaoui/sat.git pnp && cd pnp
 git clone https://github.com/arminbiere/cadical.git common/tools/cadical
 git -C common/tools/cadical checkout c60730422e758ef1cebe7aeddf2dda31c996bf04
 git clone https://github.com/marijnheule/dpr-trim.git common/tools/dpr-trim
