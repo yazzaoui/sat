@@ -43,6 +43,8 @@ OPTION(tplwarm,bool,false,0,1,"template hit warm-starts the reduct solve") \
 OPTION(tplprobation,int,200,0,INT_MAX,"filter probation window (attempts)") \
 OPTION(tplminhit,int,90,0,100,"min template hit %% to keep filtering") \
 OPTION(tplpruneoff,int,5,0,100,"below this hit %% disable pruning entirely") \
+OPTION(tplminaccept,int,25,0,100,"prune-off also needs acceptance %% below this") \
+OPTION(tpltimecap,double,5.0,0,1e9,"probation wall-clock cap in seconds (0=off)") \
 OPTION(seed,int,0,0,3,"reduct seeding from conflict analysis (1=order,2=phase,3=both)") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
@@ -511,6 +513,8 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
     long tried, accepted;	// Statistics.
     long warm;			// Warm-started reduct solves.
     long probes, probe_hits;	// Filter probation window counters.
+    long window_attempts;	// All prune attempts during probation.
+    double probation_start;	// Process time of first probation attempt.
     bool via_template;		// Last accept came from a template.
     bool via_warm;		// Last accept was warm-started.
   } templates;

@@ -1756,27 +1756,53 @@ static bool prune (Solver * solver) {
       (probation || sadical->templates.via_warm ||
        !(sadical->templates.count && sadical->opts.tplfilter)))
     witness_found = reduct_satisfiable (solver);
-  if (probation && witness_found) {
-    sadical->templates.probes++;
-    if (sadical->templates.via_template || sadical->templates.via_warm)
-      sadical->templates.probe_hits++;
-    if (sadical->templates.probes >= sadical->opts.tplprobation) {
-      long pct =
-        100 * sadical->templates.probe_hits / sadical->templates.probes;
-      if (pct < sadical->opts.tplpruneoff) {
-        // Witnesses at stuck points match no known structure move: the
-        // hunt is judged unprofitable — run as plain CDCL from here on.
+  if (probation) {
+    sadical->templates.window_attempts++;
+    if (witness_found) {
+      sadical->templates.probes++;
+      if (sadical->templates.via_template || sadical->templates.via_warm)
+        sadical->templates.probe_hits++;
+    }
+    // Conclude when the window fills, or on starvation (witnesses so rare
+    // the window cannot fill — logistics/BMC pattern).
+    if (!sadical->templates.probation_start)
+      sadical->templates.probation_start = sadical_process_time ();
+    bool full = sadical->templates.probes >= sadical->opts.tplprobation;
+    bool starved = !full &&
+      (sadical->templates.window_attempts >=
+         20 * (long) sadical->opts.tplprobation ||
+       (sadical->opts.tpltimecap > 0 &&
+        sadical_process_time () - sadical->templates.probation_start >
+          sadical->opts.tpltimecap));
+    if (full || starved) {
+      long probes = sadical->templates.probes;
+      long hitpct = probes ? 100 * sadical->templates.probe_hits / probes : 0;
+      long accpct =
+        100 * probes / sadical->templates.window_attempts;
+      // Prune-off needs BOTH signals: no known structure move fits the
+      // witnesses AND witnesses are rare. Hit share alone misfires
+      // (tseitin(50): 0% hits but 41% acceptance — the hunt pays there);
+      // this conjunction classifies every instance class measured so far
+      // and is documented as a fitted heuristic, not a theorem.
+      if (hitpct < sadical->opts.tplpruneoff &&
+          accpct < sadical->opts.tplminaccept) {
         sadical->opts.tplfilter = false;
         sadical->opts.prune = false;
-        MSG (1, "pruning disabled after probation (%ld%% hits)", pct);
-      } else if (pct < sadical->opts.tplminhit) {
+        MSG (1, "pruning disabled after probation "
+          "(%ld%% hits, %ld%% acceptance%s)",
+          hitpct, accpct, starved ? ", starved" : "");
+      } else if (hitpct < sadical->opts.tplminhit) {
         // Partial hit share: direct template witnesses degrade steering
         // (trajectory study), so revert to pure stock behavior.
         sadical->opts.tplfilter = false;
         sadical->templates.count = 0;
-        MSG (1, "templates disabled after probation (%ld%% hits)", pct);
+        MSG (1, "templates disabled after probation "
+          "(%ld%% hits, %ld%% acceptance)", hitpct, accpct);
       } else
-        MSG (1, "template filter confirmed by probation (%ld%% hits)", pct);
+        MSG (1, "template filter confirmed by probation (%ld%% hits)",
+          hitpct);
+      // Any verdict ends probation.
+      sadical->templates.probes = sadical->opts.tplprobation;
     }
   }
   if (witness_found) {
