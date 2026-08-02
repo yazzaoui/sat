@@ -34,3 +34,16 @@ uf100-0100: cov=0% labels=- cadical=0.008 stock=0.005 filter=0.01
 uf250-01: cov=0% labels=- cadical=0.01 stock=0.01 filter=0.007
 uf250-010: cov=0% labels=- cadical=0.008 stock=0.008 filter=0.008
 logistics.a: cov=49% labels=- cadical=0.013 stock=120 filter=120
+logistics.b: cov=55% labels=counting cadical=0.029 stock=120 filter=120
+logistics.c: cov=55% labels=counting cadical=0.02 stock=120 filter=120
+logistics.d: cov=38% labels=- cadical=0.025 stock=120 filter=120
+bmc-ibm-1: cov=14% labels=- cadical=0.159 stock=120 filter=23.279
+bmc-ibm-2: cov=8% labels=- cadical=0.02 stock=7.637 filter=2.249
+bmc-ibm-3: cov=13% labels=- cadical=0.901 stock=120 filter=120
+bmc-ibm-4: cov=13% labels=- cadical=0.18 stock=120 filter=73.658
+bmc-ibm-5: cov=7% labels=- cadical=0.02 stock=120 filter=120
+mchess12: cov=100% labels=counting+grid cadical=2.33 stock=1.374 filter=0.428
+mchess14: cov=100% labels=counting+grid cadical=23.387 stock=2.001 filter=2.01
+php10: cov=98% labels=counting cadical=5.189 stock=0.013 filter=0.013
+php11: cov=98% labels=counting cadical=120 stock=0.023 filter=0.02
+wrote /Users/youmew/research/pnp/benchmarks/results/filter_sweep.csv
