@@ -3,6 +3,12 @@
 (Lead-issued frame, recorded verbatim at kickoff. P0 document:
 docs/P0-formalization.md.)
 
+*[Frame annotation (P0, lead-approved): "the one operator this
+portfolio has validated as landscape surgery is the bijective one"
+was a composite-operator result — see the L0 ledger annotation and
+P0-formalization.md's operator split. The in-class object is the
+column half; the P1 rediscovery gate is restated accordingly.]*
+
 Question: can sparse affine transformations, selected by measured
 basin-merging, be found automatically — and do they translate into
 solver improvement under honest cost accounting? Hypothesis under
