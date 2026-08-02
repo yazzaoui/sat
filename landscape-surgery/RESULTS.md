@@ -6,7 +6,7 @@ registrations are linked the moment they are committed, before any run.
 
 | Phase | Question | Registration | Verdict |
 |---|---|---|---|
-| L0 | Do the probes see the XOR-SAT smoothing? (calibration gate) | [L0-registration](docs/L0-registration.md) — awaiting approval before probe code | — |
+| L0 | Do the probes see the XOR-SAT smoothing? (calibration gate) | [L0-registration](docs/L0-registration.md) | **PASS 100/100 cells; basin validation ρ=0.98 pooled; barrier estimator FAILED its gate — L1 restricted to exact barriers** ([L0-results](docs/L0-results.md)) |
 | L1 | H1: do good extension variables merge basins / connect solution clusters (vs BVA / random / baseline; UNSAT originals + SAT siblings)? | — | — |
 | L2 | Is basin-merging a general signature or PHP-specific? | — | — |
 | L3a | Do good coordinates alone help search (the ER-transfer puzzle)? | — | — |

@@ -202,7 +202,23 @@ def basin_sample(n, clauses, R=500, seed=1, plateau_cap=20000):
             "basins_est": len(exact_keys) + clusters,
             "capped_endpoints": len(capped),
             "coverage": sorted(exact_keys.values(), reverse=True)[:10],
-            "min_V_seen": min(all_v) if all_v else None}
+            "min_V_seen": min(all_v) if all_v else None,
+            "_reps": reps_of(exact_keys, capped, groups)}
+
+
+def reps_of(exact_keys, capped, groups):
+    """One representative endpoint per sampled cluster (internal use:
+    attractor list for the barrier ensemble)."""
+    reps = {}
+    for k, end in capped:
+        reps.setdefault(k, end)
+    out = list(reps.values())
+    # exact-keyed clusters: reconstruct an endpoint from the canonical
+    # plateau key (min assignment stored in the key)
+    for k in exact_keys:
+        if k[0] == "plateau":
+            out.append([False] + list(k[2]))
+    return out
 
 
 def barrier_sample(n, clauses, attractors, rng, N=200, eps=0.1,

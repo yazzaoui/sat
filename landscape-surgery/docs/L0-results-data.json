@@ -1,0 +1,5459 @@
+{
+ "rows": [
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 64,
+    "leaf_deaths": 63,
+    "barrier_mean": 2.496,
+    "barrier_max": 3,
+    "lex_basins": 108
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 59,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     10,
+     10,
+     9,
+     9,
+     7,
+     7,
+     7,
+     6,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 32,
+    "leaf_deaths": 31,
+    "barrier_mean": 2.5161,
+    "barrier_max": 3,
+    "lex_basins": 102
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 31,
+    "capped_endpoints": 0,
+    "coverage": [
+     16,
+     14,
+     13,
+     12,
+     12,
+     11,
+     11,
+     9,
+     9,
+     8
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 20,
+    "leaf_deaths": 19,
+    "barrier_mean": 2.5263,
+    "barrier_max": 3,
+    "lex_basins": 52
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 21,
+    "capped_endpoints": 0,
+    "coverage": [
+     20,
+     19,
+     18,
+     17,
+     13,
+     12,
+     11,
+     9,
+     8,
+     8
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 18,
+    "leaf_deaths": 17,
+    "barrier_mean": 2.6144,
+    "barrier_max": 3,
+    "lex_basins": 50
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 23,
+    "capped_endpoints": 0,
+    "coverage": [
+     31,
+     24,
+     16,
+     13,
+     12,
+     12,
+     9,
+     9,
+     9,
+     9
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 32,
+    "leaf_deaths": 31,
+    "barrier_mean": 1.9839,
+    "barrier_max": 2,
+    "lex_basins": 84
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 33,
+    "capped_endpoints": 0,
+    "coverage": [
+     15,
+     12,
+     12,
+     12,
+     10,
+     9,
+     9,
+     9,
+     8,
+     8
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 40,
+    "leaf_deaths": 39,
+    "barrier_mean": 1.9949,
+    "barrier_max": 2,
+    "lex_basins": 84
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 42,
+    "capped_endpoints": 0,
+    "coverage": [
+     18,
+     14,
+     13,
+     12,
+     11,
+     10,
+     10,
+     7,
+     6,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 7,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 48,
+    "leaf_deaths": 47,
+    "barrier_mean": 1.9929,
+    "barrier_max": 2,
+    "lex_basins": 116
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 45,
+    "capped_endpoints": 0,
+    "coverage": [
+     15,
+     14,
+     12,
+     9,
+     8,
+     8,
+     8,
+     7,
+     7,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 32,
+    "leaf_deaths": 31,
+    "barrier_mean": 2.5161,
+    "barrier_max": 3,
+    "lex_basins": 90
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 32,
+    "capped_endpoints": 0,
+    "coverage": [
+     11,
+     11,
+     10,
+     10,
+     10,
+     9,
+     8,
+     8,
+     8,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 56,
+    "leaf_deaths": 55,
+    "barrier_mean": 2.0,
+    "barrier_max": 2,
+    "lex_basins": 150
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 54,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     9,
+     8,
+     8,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.7,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 44,
+    "min_V": 0,
+    "n_min_states": 32,
+    "basins": 44,
+    "leaf_deaths": 43,
+    "barrier_mean": 2.9345,
+    "barrier_max": 3,
+    "lex_basins": 78
+   },
+   "exact_post": {
+    "n": 11,
+    "clauses": 11,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 40,
+    "capped_endpoints": 0,
+    "coverage": [
+     17,
+     15,
+     12,
+     12,
+     11,
+     10,
+     9,
+     9,
+     7,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 68,
+    "leaf_deaths": 67,
+    "barrier_mean": 3.5522,
+    "barrier_max": 4,
+    "lex_basins": 142
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 57,
+    "capped_endpoints": 0,
+    "coverage": [
+     14,
+     10,
+     10,
+     9,
+     8,
+     8,
+     7,
+     7,
+     7,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 46,
+    "leaf_deaths": 45,
+    "barrier_mean": 3.656,
+    "barrier_max": 4,
+    "lex_basins": 104
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 40,
+    "capped_endpoints": 0,
+    "coverage": [
+     17,
+     16,
+     16,
+     10,
+     10,
+     9,
+     8,
+     7,
+     6,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 124,
+    "leaf_deaths": 123,
+    "barrier_mean": 3.3194,
+    "barrier_max": 4,
+    "lex_basins": 215
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 84,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     8,
+     7,
+     7,
+     6,
+     6,
+     6,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 4,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 1,
+    "n_min_states": 48,
+    "basins": 62,
+    "leaf_deaths": 61,
+    "barrier_mean": 3.7499,
+    "barrier_max": 4,
+    "lex_basins": 104
+   },
+   "exact_post": {
+    "n": 13,
+    "clauses": 13,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 52,
+    "capped_endpoints": 0,
+    "coverage": [
+     12,
+     10,
+     10,
+     10,
+     10,
+     7,
+     6,
+     6,
+     6,
+     6
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 30,
+    "leaf_deaths": 29,
+    "barrier_mean": 2.9816,
+    "barrier_max": 3,
+    "lex_basins": 88
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 31,
+    "capped_endpoints": 0,
+    "coverage": [
+     15,
+     14,
+     12,
+     11,
+     10,
+     10,
+     10,
+     10,
+     9,
+     9
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 40,
+    "leaf_deaths": 39,
+    "barrier_mean": 2.9718,
+    "barrier_max": 3,
+    "lex_basins": 93
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 41,
+    "capped_endpoints": 0,
+    "coverage": [
+     15,
+     14,
+     11,
+     10,
+     9,
+     9,
+     9,
+     9,
+     9,
+     8
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 7,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 8,
+    "basins": 40,
+    "leaf_deaths": 39,
+    "barrier_mean": 2.9231,
+    "barrier_max": 3,
+    "lex_basins": 145
+   },
+   "exact_post": {
+    "n": 13,
+    "clauses": 13,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 40,
+    "capped_endpoints": 0,
+    "coverage": [
+     16,
+     16,
+     15,
+     15,
+     13,
+     11,
+     11,
+     10,
+     7,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 48,
+    "leaf_deaths": 47,
+    "barrier_mean": 2.8387,
+    "barrier_max": 3,
+    "lex_basins": 132
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 43,
+    "capped_endpoints": 0,
+    "coverage": [
+     17,
+     12,
+     11,
+     8,
+     8,
+     8,
+     8,
+     7,
+     7,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 92,
+    "leaf_deaths": 91,
+    "barrier_mean": 3.2226,
+    "barrier_max": 4,
+    "lex_basins": 224
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 67,
+    "capped_endpoints": 0,
+    "coverage": [
+     11,
+     8,
+     8,
+     8,
+     7,
+     6,
+     6,
+     6,
+     6,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 16,
+   "density": 0.9,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 16,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 52,
+    "leaf_deaths": 51,
+    "barrier_mean": 3.2707,
+    "barrier_max": 4,
+    "lex_basins": 108
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 42,
+    "capped_endpoints": 0,
+    "coverage": [
+     16,
+     13,
+     13,
+     13,
+     12,
+     10,
+     9,
+     8,
+     8,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 288,
+    "leaf_deaths": 287,
+    "barrier_mean": 2.8897,
+    "barrier_max": 3,
+    "lex_basins": 520
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 125,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 96,
+    "leaf_deaths": 95,
+    "barrier_mean": 3.3982,
+    "barrier_max": 4,
+    "lex_basins": 218
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 68,
+    "capped_endpoints": 0,
+    "coverage": [
+     11,
+     10,
+     9,
+     8,
+     7,
+     7,
+     7,
+     6,
+     6,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 224,
+    "leaf_deaths": 223,
+    "barrier_mean": 2.8065,
+    "barrier_max": 3,
+    "lex_basins": 376
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 124,
+    "capped_endpoints": 0,
+    "coverage": [
+     7,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 256,
+    "leaf_deaths": 255,
+    "barrier_mean": 1.9931,
+    "barrier_max": 2,
+    "lex_basins": 664
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 134,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     4,
+     4,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 192,
+    "leaf_deaths": 191,
+    "barrier_mean": 3.1518,
+    "barrier_max": 4,
+    "lex_basins": 544
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 118,
+    "capped_endpoints": 0,
+    "coverage": [
+     6,
+     5,
+     5,
+     4,
+     4,
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 176,
+    "leaf_deaths": 175,
+    "barrier_mean": 2.9418,
+    "barrier_max": 3,
+    "lex_basins": 324
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 98,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     5,
+     5,
+     5,
+     5,
+     5,
+     5,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 7,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 1,
+    "n_min_states": 256,
+    "basins": 16,
+    "leaf_deaths": 15,
+    "barrier_mean": 3.6,
+    "barrier_max": 4,
+    "lex_basins": 87
+   },
+   "exact_post": {
+    "n": 13,
+    "clauses": 13,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 25,
+    "capped_endpoints": 0,
+    "coverage": [
+     15,
+     14,
+     14,
+     13,
+     12,
+     12,
+     11,
+     11,
+     11,
+     11
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 288,
+    "leaf_deaths": 287,
+    "barrier_mean": 2.9218,
+    "barrier_max": 3,
+    "lex_basins": 512
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 118,
+    "capped_endpoints": 0,
+    "coverage": [
+     6,
+     6,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 144,
+    "leaf_deaths": 143,
+    "barrier_mean": 2.892,
+    "barrier_max": 3,
+    "lex_basins": 352
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 84,
+    "capped_endpoints": 0,
+    "coverage": [
+     8,
+     7,
+     6,
+     6,
+     6,
+     6,
+     5,
+     5,
+     5,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.7,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 56,
+    "min_V": 0,
+    "n_min_states": 64,
+    "basins": 32,
+    "leaf_deaths": 31,
+    "barrier_mean": 2.5161,
+    "barrier_max": 3,
+    "lex_basins": 227
+   },
+   "exact_post": {
+    "n": 14,
+    "clauses": 14,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 36,
+    "capped_endpoints": 0,
+    "coverage": [
+     14,
+     11,
+     11,
+     10,
+     10,
+     9,
+     8,
+     8,
+     8,
+     7
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 1,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 1,
+    "n_min_states": 64,
+    "basins": 208,
+    "leaf_deaths": 207,
+    "barrier_mean": 3.2742,
+    "barrier_max": 4,
+    "lex_basins": 441
+   },
+   "exact_post": {
+    "n": 16,
+    "clauses": 16,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 119,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 2,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 1,
+    "n_min_states": 64,
+    "basins": 110,
+    "leaf_deaths": 109,
+    "barrier_mean": 4.0959,
+    "barrier_max": 5,
+    "lex_basins": 236
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 80,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     9,
+     7,
+     7,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 0,
+    "n_min_states": 8,
+    "basins": 120,
+    "leaf_deaths": 119,
+    "barrier_mean": 2.991,
+    "barrier_max": 3,
+    "lex_basins": 492
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 84,
+    "capped_endpoints": 0,
+    "coverage": [
+     8,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 132,
+    "leaf_deaths": 131,
+    "barrier_mean": 3.1127,
+    "barrier_max": 4,
+    "lex_basins": 486
+   },
+   "exact_post": {
+    "n": 18,
+    "clauses": 18,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 91,
+    "capped_endpoints": 0,
+    "coverage": [
+     7,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 0,
+    "n_min_states": 8,
+    "basins": 56,
+    "leaf_deaths": 55,
+    "barrier_mean": 3.6247,
+    "barrier_max": 4,
+    "lex_basins": 274
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 59,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     10,
+     9,
+     9,
+     9,
+     9,
+     8,
+     7,
+     6,
+     6
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 0,
+    "n_min_states": 8,
+    "basins": 120,
+    "leaf_deaths": 119,
+    "barrier_mean": 3.6118,
+    "barrier_max": 4,
+    "lex_basins": 360
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 74,
+    "capped_endpoints": 0,
+    "coverage": [
+     8,
+     7,
+     7,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 7,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 1,
+    "n_min_states": 16,
+    "basins": 64,
+    "leaf_deaths": 63,
+    "barrier_mean": 4.744,
+    "barrier_max": 5,
+    "lex_basins": 187
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 55,
+    "capped_endpoints": 0,
+    "coverage": [
+     12,
+     12,
+     11,
+     11,
+     10,
+     8,
+     8,
+     8,
+     7,
+     6
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 0,
+    "n_min_states": 8,
+    "basins": 136,
+    "leaf_deaths": 135,
+    "barrier_mean": 3.4135,
+    "barrier_max": 4,
+    "lex_basins": 529
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 75,
+    "capped_endpoints": 0,
+    "coverage": [
+     15,
+     14,
+     13,
+     11,
+     10,
+     9,
+     8,
+     6,
+     5,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 140,
+    "leaf_deaths": 139,
+    "barrier_mean": 3.2625,
+    "barrier_max": 4,
+    "lex_basins": 512
+   },
+   "exact_post": {
+    "n": 18,
+    "clauses": 18,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 87,
+    "capped_endpoints": 0,
+    "coverage": [
+     7,
+     7,
+     7,
+     7,
+     6,
+     5,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 20,
+   "density": 0.9,
+   "seed": 10,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 20,
+    "clauses": 72,
+    "min_V": 1,
+    "n_min_states": 16,
+    "basins": 96,
+    "leaf_deaths": 95,
+    "barrier_mean": 3.6561,
+    "barrier_max": 4,
+    "lex_basins": 516
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 77,
+    "capped_endpoints": 0,
+    "coverage": [
+     8,
+     7,
+     7,
+     7,
+     6,
+     6,
+     6,
+     5,
+     5,
+     4
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 272,
+    "leaf_deaths": 271,
+    "barrier_mean": 2.9151,
+    "barrier_max": 3,
+    "lex_basins": 836
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 124,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 384,
+    "leaf_deaths": 383,
+    "barrier_mean": 2.6536,
+    "barrier_max": 3,
+    "lex_basins": 1376
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 158,
+    "capped_endpoints": 0,
+    "coverage": [
+     4,
+     4,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     2
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 304,
+    "leaf_deaths": 303,
+    "barrier_mean": 3.1565,
+    "barrier_max": 4,
+    "lex_basins": 742
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 118,
+    "capped_endpoints": 0,
+    "coverage": [
+     6,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 144,
+    "leaf_deaths": 143,
+    "barrier_mean": 2.8485,
+    "barrier_max": 3,
+    "lex_basins": 627
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 83,
+    "capped_endpoints": 0,
+    "coverage": [
+     7,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 208,
+    "leaf_deaths": 207,
+    "barrier_mean": 2.9298,
+    "barrier_max": 3,
+    "lex_basins": 554
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 113,
+    "capped_endpoints": 0,
+    "coverage": [
+     6,
+     5,
+     5,
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 144,
+    "leaf_deaths": 143,
+    "barrier_mean": 2.9479,
+    "barrier_max": 3,
+    "lex_basins": 642
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 91,
+    "capped_endpoints": 0,
+    "coverage": [
+     9,
+     7,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5,
+     5,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 7,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 1,
+    "n_min_states": 2048,
+    "basins": 96,
+    "leaf_deaths": 95,
+    "barrier_mean": 3.7965,
+    "barrier_max": 4,
+    "lex_basins": 264
+   },
+   "exact_post": {
+    "n": 16,
+    "clauses": 16,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 81,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     7,
+     7,
+     6,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 128,
+    "leaf_deaths": 127,
+    "barrier_mean": 2.7215,
+    "barrier_max": 3,
+    "lex_basins": 670
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 91,
+    "capped_endpoints": 0,
+    "coverage": [
+     6,
+     6,
+     5,
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 384,
+    "leaf_deaths": 383,
+    "barrier_mean": 2.7785,
+    "barrier_max": 3,
+    "lex_basins": 1760
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 124,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.7,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 68,
+    "min_V": 0,
+    "n_min_states": 128,
+    "basins": 160,
+    "leaf_deaths": 159,
+    "barrier_mean": 2.9528,
+    "barrier_max": 3,
+    "lex_basins": 694
+   },
+   "exact_post": {
+    "n": 17,
+    "clauses": 17,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 100,
+    "capped_endpoints": 0,
+    "coverage": [
+     6,
+     6,
+     6,
+     6,
+     6,
+     5,
+     5,
+     5,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 540,
+    "leaf_deaths": 539,
+    "barrier_mean": 4.2321,
+    "barrier_max": 6,
+    "lex_basins": 1474
+   },
+   "exact_post": {
+    "n": 22,
+    "clauses": 22,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 142,
+    "capped_endpoints": 0,
+    "coverage": [
+     4,
+     4,
+     4,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 2,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 1,
+    "n_min_states": 80,
+    "basins": 420,
+    "leaf_deaths": 419,
+    "barrier_mean": 4.261,
+    "barrier_max": 5,
+    "lex_basins": 1033
+   },
+   "exact_post": {
+    "n": 21,
+    "clauses": 21,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 132,
+    "capped_endpoints": 0,
+    "coverage": [
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 8,
+    "basins": 576,
+    "leaf_deaths": 575,
+    "barrier_mean": 4.3748,
+    "barrier_max": 6,
+    "lex_basins": 1468
+   },
+   "exact_post": {
+    "n": 21,
+    "clauses": 21,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 140,
+    "capped_endpoints": 0,
+    "coverage": [
+     7,
+     6,
+     5,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 258,
+    "leaf_deaths": 257,
+    "barrier_mean": 4.0794,
+    "barrier_max": 5,
+    "lex_basins": 1149
+   },
+   "exact_post": {
+    "n": 22,
+    "clauses": 22,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 106,
+    "capped_endpoints": 0,
+    "coverage": [
+     10,
+     7,
+     6,
+     5,
+     5,
+     5,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 259,
+    "leaf_deaths": 258,
+    "barrier_mean": 4.4037,
+    "barrier_max": 6,
+    "lex_basins": 726
+   },
+   "exact_post": {
+    "n": 22,
+    "clauses": 22,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 127,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 161,
+    "leaf_deaths": 160,
+    "barrier_mean": 4.1911,
+    "barrier_max": 5,
+    "lex_basins": 860
+   },
+   "exact_post": {
+    "n": 22,
+    "clauses": 22,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 93,
+    "capped_endpoints": 0,
+    "coverage": [
+     9,
+     8,
+     7,
+     6,
+     6,
+     6,
+     6,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 7,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 1,
+    "n_min_states": 64,
+    "basins": 90,
+    "leaf_deaths": 89,
+    "barrier_mean": 4.6397,
+    "barrier_max": 6,
+    "lex_basins": 337
+   },
+   "exact_post": {
+    "n": 20,
+    "clauses": 20,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 84,
+    "capped_endpoints": 0,
+    "coverage": [
+     9,
+     8,
+     7,
+     6,
+     6,
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 216,
+    "leaf_deaths": 215,
+    "barrier_mean": 3.865,
+    "barrier_max": 5,
+    "lex_basins": 1181
+   },
+   "exact_post": {
+    "n": 22,
+    "clauses": 22,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 109,
+    "capped_endpoints": 0,
+    "coverage": [
+     7,
+     6,
+     6,
+     5,
+     4,
+     4,
+     4,
+     3,
+     3,
+     3
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 0,
+    "n_min_states": 4,
+    "basins": 172,
+    "leaf_deaths": 171,
+    "barrier_mean": 3.2944,
+    "barrier_max": 4,
+    "lex_basins": 1319
+   },
+   "exact_post": {
+    "n": 22,
+    "clauses": 22,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 100,
+    "capped_endpoints": 0,
+    "coverage": [
+     8,
+     8,
+     7,
+     7,
+     6,
+     5,
+     5,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 24,
+   "density": 0.9,
+   "seed": 10,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "exact_pre": {
+    "n": 24,
+    "clauses": 88,
+    "min_V": 1,
+    "n_min_states": 48,
+    "basins": 366,
+    "leaf_deaths": 365,
+    "barrier_mean": 4.6047,
+    "barrier_max": 6,
+    "lex_basins": 848
+   },
+   "exact_post": {
+    "n": 21,
+    "clauses": 21,
+    "min_V": 0,
+    "n_min_states": 1,
+    "basins": 1,
+    "leaf_deaths": 0,
+    "barrier_mean": 0.0,
+    "barrier_max": 0,
+    "lex_basins": 1
+   },
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 130,
+    "capped_endpoints": 0,
+    "coverage": [
+     5,
+     5,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 183,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 193,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 196,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 192,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 197,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 7,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 196,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 198,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 196,
+    "capped_endpoints": 0,
+    "coverage": [
+     3,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.7,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 193,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 196,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 198,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 190,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 191,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 5,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 196,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 193,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 7,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 198,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 193,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 182,
+    "capped_endpoints": 0,
+    "coverage": [
+     3,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 40,
+   "density": 0.9,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 190,
+    "capped_endpoints": 0,
+    "coverage": [
+     4,
+     3,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 1,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 4,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 7,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 9,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 1,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.7,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 199,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 1,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 1,
+    "R": 200,
+    "basins_est": 199,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 1,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 2,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 2,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 2,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 3,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 3,
+    "R": 200,
+    "basins_est": 198,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 3,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 4,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "sampled_pre": {
+    "seed": 4,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 4,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 5,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 5,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 5,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 6,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 6,
+    "R": 200,
+    "basins_est": 199,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 6,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 7,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 7,
+    "R": 200,
+    "basins_est": 199,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 7,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 8,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 8,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 0
+   },
+   "sampled_post": {
+    "seed": 8,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 9,
+   "satisfiable": false,
+   "inconsistent_rows": 1,
+   "sampled_pre": {
+    "seed": 9,
+    "R": 200,
+    "basins_est": 200,
+    "capped_endpoints": 0,
+    "coverage": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 9,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  },
+  {
+   "n": 60,
+   "density": 0.9,
+   "seed": 10,
+   "satisfiable": true,
+   "inconsistent_rows": 0,
+   "sampled_pre": {
+    "seed": 10,
+    "R": 200,
+    "basins_est": 199,
+    "capped_endpoints": 0,
+    "coverage": [
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "min_V_seen": 1
+   },
+   "sampled_post": {
+    "seed": 10,
+    "R": 100,
+    "basins_est": 1,
+    "capped_endpoints": 0,
+    "coverage": [
+     100
+    ],
+    "min_V_seen": 0
+   }
+  }
+ ],
+ "summary": {
+  "gate": {
+   "exact_rows": 60,
+   "plural_before": 60,
+   "single_after": 60,
+   "sampled_rows": 40,
+   "sampled_single_after": 40,
+   "sampled_plural_before": 40
+  },
+  "validation": {
+   "family_spearman": {
+    "16/0.7": 0.963,
+    "16/0.9": 0.96,
+    "20/0.7": 0.912,
+    "20/0.9": 0.76,
+    "24/0.7": 0.945,
+    "24/0.9": 0.976
+   },
+   "pooled_spearman": 0.98,
+   "bar": 0.8
+  },
+  "lex_divergence": [
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 1,
+    "phase": "exact_pre",
+    "merge_tree": 64,
+    "lex": 108
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 2,
+    "phase": "exact_pre",
+    "merge_tree": 32,
+    "lex": 102
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 3,
+    "phase": "exact_pre",
+    "merge_tree": 20,
+    "lex": 52
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 4,
+    "phase": "exact_pre",
+    "merge_tree": 18,
+    "lex": 50
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 5,
+    "phase": "exact_pre",
+    "merge_tree": 32,
+    "lex": 84
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 6,
+    "phase": "exact_pre",
+    "merge_tree": 40,
+    "lex": 84
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 7,
+    "phase": "exact_pre",
+    "merge_tree": 48,
+    "lex": 116
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 8,
+    "phase": "exact_pre",
+    "merge_tree": 32,
+    "lex": 90
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 9,
+    "phase": "exact_pre",
+    "merge_tree": 56,
+    "lex": 150
+   },
+   {
+    "n": 16,
+    "density": 0.7,
+    "seed": 10,
+    "phase": "exact_pre",
+    "merge_tree": 44,
+    "lex": 78
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 1,
+    "phase": "exact_pre",
+    "merge_tree": 68,
+    "lex": 142
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 2,
+    "phase": "exact_pre",
+    "merge_tree": 46,
+    "lex": 104
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 3,
+    "phase": "exact_pre",
+    "merge_tree": 124,
+    "lex": 215
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 4,
+    "phase": "exact_pre",
+    "merge_tree": 62,
+    "lex": 104
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 5,
+    "phase": "exact_pre",
+    "merge_tree": 30,
+    "lex": 88
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 6,
+    "phase": "exact_pre",
+    "merge_tree": 40,
+    "lex": 93
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 7,
+    "phase": "exact_pre",
+    "merge_tree": 40,
+    "lex": 145
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 8,
+    "phase": "exact_pre",
+    "merge_tree": 48,
+    "lex": 132
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 9,
+    "phase": "exact_pre",
+    "merge_tree": 92,
+    "lex": 224
+   },
+   {
+    "n": 16,
+    "density": 0.9,
+    "seed": 10,
+    "phase": "exact_pre",
+    "merge_tree": 52,
+    "lex": 108
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 1,
+    "phase": "exact_pre",
+    "merge_tree": 288,
+    "lex": 520
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 2,
+    "phase": "exact_pre",
+    "merge_tree": 96,
+    "lex": 218
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 3,
+    "phase": "exact_pre",
+    "merge_tree": 224,
+    "lex": 376
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 4,
+    "phase": "exact_pre",
+    "merge_tree": 256,
+    "lex": 664
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 5,
+    "phase": "exact_pre",
+    "merge_tree": 192,
+    "lex": 544
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 6,
+    "phase": "exact_pre",
+    "merge_tree": 176,
+    "lex": 324
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 7,
+    "phase": "exact_pre",
+    "merge_tree": 16,
+    "lex": 87
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 8,
+    "phase": "exact_pre",
+    "merge_tree": 288,
+    "lex": 512
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 9,
+    "phase": "exact_pre",
+    "merge_tree": 144,
+    "lex": 352
+   },
+   {
+    "n": 20,
+    "density": 0.7,
+    "seed": 10,
+    "phase": "exact_pre",
+    "merge_tree": 32,
+    "lex": 227
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 1,
+    "phase": "exact_pre",
+    "merge_tree": 208,
+    "lex": 441
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 2,
+    "phase": "exact_pre",
+    "merge_tree": 110,
+    "lex": 236
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 3,
+    "phase": "exact_pre",
+    "merge_tree": 120,
+    "lex": 492
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 4,
+    "phase": "exact_pre",
+    "merge_tree": 132,
+    "lex": 486
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 5,
+    "phase": "exact_pre",
+    "merge_tree": 56,
+    "lex": 274
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 6,
+    "phase": "exact_pre",
+    "merge_tree": 120,
+    "lex": 360
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 7,
+    "phase": "exact_pre",
+    "merge_tree": 64,
+    "lex": 187
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 8,
+    "phase": "exact_pre",
+    "merge_tree": 136,
+    "lex": 529
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 9,
+    "phase": "exact_pre",
+    "merge_tree": 140,
+    "lex": 512
+   },
+   {
+    "n": 20,
+    "density": 0.9,
+    "seed": 10,
+    "phase": "exact_pre",
+    "merge_tree": 96,
+    "lex": 516
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 1,
+    "phase": "exact_pre",
+    "merge_tree": 272,
+    "lex": 836
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 2,
+    "phase": "exact_pre",
+    "merge_tree": 384,
+    "lex": 1376
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 3,
+    "phase": "exact_pre",
+    "merge_tree": 304,
+    "lex": 742
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 4,
+    "phase": "exact_pre",
+    "merge_tree": 144,
+    "lex": 627
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 5,
+    "phase": "exact_pre",
+    "merge_tree": 208,
+    "lex": 554
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 6,
+    "phase": "exact_pre",
+    "merge_tree": 144,
+    "lex": 642
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 7,
+    "phase": "exact_pre",
+    "merge_tree": 96,
+    "lex": 264
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 8,
+    "phase": "exact_pre",
+    "merge_tree": 128,
+    "lex": 670
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 9,
+    "phase": "exact_pre",
+    "merge_tree": 384,
+    "lex": 1760
+   },
+   {
+    "n": 24,
+    "density": 0.7,
+    "seed": 10,
+    "phase": "exact_pre",
+    "merge_tree": 160,
+    "lex": 694
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 1,
+    "phase": "exact_pre",
+    "merge_tree": 540,
+    "lex": 1474
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 2,
+    "phase": "exact_pre",
+    "merge_tree": 420,
+    "lex": 1033
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 3,
+    "phase": "exact_pre",
+    "merge_tree": 576,
+    "lex": 1468
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 4,
+    "phase": "exact_pre",
+    "merge_tree": 258,
+    "lex": 1149
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 5,
+    "phase": "exact_pre",
+    "merge_tree": 259,
+    "lex": 726
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 6,
+    "phase": "exact_pre",
+    "merge_tree": 161,
+    "lex": 860
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 7,
+    "phase": "exact_pre",
+    "merge_tree": 90,
+    "lex": 337
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 8,
+    "phase": "exact_pre",
+    "merge_tree": 216,
+    "lex": 1181
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 9,
+    "phase": "exact_pre",
+    "merge_tree": 172,
+    "lex": 1319
+   },
+   {
+    "n": 24,
+    "density": 0.9,
+    "seed": 10,
+    "phase": "exact_pre",
+    "merge_tree": 366,
+    "lex": 848
+   }
+  ],
+  "barrier_validation": {
+   "design": "like-for-like per-pair (v1 all-leaf-mean comparison was a category error, disclosed)",
+   "family_pair_spearman": {
+    "16/0.7": {
+     "rho": 0.356,
+     "pairs": 73
+    },
+    "16/0.9": {
+     "rho": 0.223,
+     "pairs": 62
+    },
+    "20/0.7": {
+     "rho": 0.468,
+     "pairs": 22
+    },
+    "20/0.9": {
+     "rho": 0.337,
+     "pairs": 26
+    }
+   },
+   "bar": 0.8,
+   "v1_partial_wrong_object": {
+    "16/0.7": 0.559,
+    "16/0.9": -0.571,
+    "20/0.7": 0.83
+   }
+  },
+  "family_20_09_revalidation": {
+   "initial_R200_rho": 0.76,
+   "R500_rho": 0.893
+  }
+ }
+}
