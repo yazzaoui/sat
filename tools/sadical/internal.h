@@ -35,6 +35,10 @@ OPTION(restart,bool,true,0,1,"enable restarts") \
 OPTION(restartint,int,10,1,INT_MAX,"restart interval") \
 OPTION(restartmargin,double,1.1,1,INT_MAX,"restart slow / fast margin") \
 OPTION(templatetries,int,64,0,INT_MAX,"max template witness tries per prune") \
+OPTION(tplbump,bool,true,0,1,"flip-bump variables on template accepts") \
+OPTION(tplbalance,bool,true,0,1,"balance-restart accounting on template accepts") \
+OPTION(tplmode,bool,true,0,1,"relevant-mode switch on template accepts") \
+OPTION(tplfilter,bool,false,0,1,"template miss skips the reduct solve") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
 OPTION(verbose,int,1,0,5,"verbose level") \

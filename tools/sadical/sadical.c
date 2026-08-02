@@ -1657,7 +1657,9 @@ static bool prune (Solver * solver) {
     ev_decisions = sadical->inner->local.decisions;
   }
   bool witness_found = try_template_witness (solver);
-  if (!witness_found) witness_found = reduct_satisfiable (solver);
+  if (!witness_found &&
+      !(sadical->templates.count && sadical->opts.tplfilter))
+    witness_found = reduct_satisfiable (solver);
   if (witness_found) {
     LOG ("pruning successful");
     MSG (3, "pruning successful");
@@ -1698,6 +1700,8 @@ static bool prune (Solver * solver) {
       count++;
       MSG (3, "flipped %i", outer_lit);
       if (solver->level <= 2) continue;
+      if (sadical->templates.via_template && !sadical->opts.tplbump)
+	continue;
       int idx = variable_index (solver, var (solver, outer_lit));
       if (idx == solver->queue.last) continue;
       dequeue (solver, idx);
@@ -1716,14 +1720,16 @@ static bool prune (Solver * solver) {
       if (tmp < 0) { count++; MSG (3, "decision flipped %i", decision); }
     }
 
-    if (count != decisions) {
+    if (count != decisions &&
+        (!sadical->templates.via_template || sadical->opts.tplbalance)) {
       MSG (3,
         "unbalanced prune (%i/%i): restart before next decision",
 	count, decisions);
       solver->balance = 0;
     }
 
-    if (solver->level > 2) {
+    if (solver->level > 2 &&
+        (!sadical->templates.via_template || sadical->opts.tplmode)) {
       solver->mode = MODE_RELEVANT;
       MSG (3, "switching to 'RELEVANT MODE' at decision level '%d",
         solver->level);
