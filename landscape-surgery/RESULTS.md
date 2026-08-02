@@ -6,8 +6,8 @@ registrations are linked the moment they are committed, before any run.
 
 | Phase | Question | Registration | Verdict |
 |---|---|---|---|
-| L0 | Do the probes see the XOR-SAT smoothing? (calibration gate) | — | — |
-| L1 | H1: do Cook's PHP extension variables merge basins (vs BVA / random / baseline)? | — | — |
+| L0 | Do the probes see the XOR-SAT smoothing? (calibration gate) | [L0-registration](docs/L0-registration.md) — awaiting approval before probe code | — |
+| L1 | H1: do good extension variables merge basins / connect solution clusters (vs BVA / random / baseline; UNSAT originals + SAT siblings)? | — | — |
 | L2 | Is basin-merging a general signature or PHP-specific? | — | — |
 | L3a | Do good coordinates alone help search (the ER-transfer puzzle)? | — | — |
 | L3b | Does probe-guided selection beat BVA under matched budgets? | — | — |
