@@ -33,11 +33,37 @@ static uint32_t find (uint32_t x) {
   return x;
 }
 
+// --pairs mode (S3): track target states through the sweep, emit
+// pairwise merge levels. Flag-gated; stock behavior unchanged.
+#define MAXT 512
+static uint32_t targets[MAXT]; static int T, TW;
+static int32_t *maskidx;                 // root -> pool slot (or -1)
+static uint64_t *pool;                   // MAXT x TW words
+static uint8_t *pool_used;
+static uint64_t pair_lvl[MAXT][3]; static int npairs_dummy;
+static FILE *pairs_out;
+
+static int target_of (uint32_t s) {
+  int lo = 0, hi = T - 1;
+  while (lo <= hi) {
+    int mid = (lo + hi) / 2;
+    if (targets[mid] == s) return mid;
+    if (targets[mid] < s) lo = mid + 1; else hi = mid - 1;
+  }
+  return -1;
+}
+
+static int cmp_u32 (const void *a, const void *b) {
+  uint32_t x = *(const uint32_t *) a, y = *(const uint32_t *) b;
+  return x < y ? -1 : x > y;
+}
+
 int main (int argc, char **argv) {
   int do_lex = 0;
-  const char *path = 0;
+  const char *path = 0, *pairs_path = 0;
   for (int i = 1; i < argc; i++) {
     if (!strcmp (argv[i], "--lex")) do_lex = 1;
+    else if (!strcmp (argv[i], "--pairs")) pairs_path = argv[++i];
     else path = argv[i];
   }
   if (!path) { fprintf (stderr, "usage: exact [--lex] cnf\n"); return 1; }
@@ -74,6 +100,23 @@ int main (int argc, char **argv) {
   N = 1ull << n_vars;
   const uint32_t ALL = (uint32_t) (N - 1);
 
+  if (pairs_path) {
+    FILE *tf = fopen (pairs_path, "r");
+    if (!tf) { perror (pairs_path); return 1; }
+    unsigned long long u;
+    while (T < MAXT && fscanf (tf, "%llu", &u) == 1)
+      targets[T++] = (uint32_t) u;
+    fclose (tf);
+    if (T == MAXT) { fprintf (stderr, "too many targets\n"); return 3; }
+    qsort (targets, T, sizeof (uint32_t), cmp_u32);
+    TW = (T + 63) / 64;
+    maskidx = malloc (N * sizeof (int32_t));
+    memset (maskidx, 0xff, N * sizeof (int32_t));
+    pool = calloc ((size_t) MAXT * TW, 8);
+    pool_used = calloc (MAXT, 1);
+    (void) pair_lvl; (void) npairs_dummy;
+  }
+
   // V via violating-subcube enumeration.
   V = calloc (N, sizeof *V);
   for (int c = 0; c < m; c++) {
@@ -107,10 +150,26 @@ int main (int argc, char **argv) {
   lc = malloc (N * sizeof *lc);
   double barrier_sum = 0; uint64_t barrier_pairs = 0; uint32_t barrier_max = 0;
   uint64_t deaths = 0;
+  char pairs_buf_path[600];
+  if (pairs_path) {
+    snprintf (pairs_buf_path, sizeof pairs_buf_path, "%s.out", pairs_path);
+    pairs_out = fopen (pairs_buf_path, "w");
+  }
   for (uint64_t i = 0; i < N; i++) {
     uint32_t s = order[i];
     uint16_t v = V[s];
     parent[s] = s; birth[s] = v; csize[s] = 1; lc[s] = 1;
+    if (pairs_path) {
+      int ti = target_of (s);
+      if (ti >= 0) {
+        int slot = -1;
+        for (int q = 0; q < MAXT; q++) if (!pool_used[q]) { slot = q; break; }
+        pool_used[slot] = 1;
+        memset (pool + (size_t) slot * TW, 0, (size_t) TW * 8);
+        pool[(size_t) slot * TW + ti / 64] |= 1ull << (ti % 64);
+        maskidx[s] = slot;
+      }
+    }
     for (int b = 0; b < n_vars; b++) {
       uint32_t nb = s ^ (1u << b);
       if (parent[nb] == 0xffffffffu) continue;
@@ -119,6 +178,27 @@ int main (int argc, char **argv) {
       // Younger = larger birth (ties: consolidation either way).
       uint32_t elder = birth[r1] <= birth[r2] ? r1 : r2;
       uint32_t young = elder == r1 ? r2 : r1;
+      if (pairs_path) {
+        int me = maskidx[elder], my = maskidx[young];
+        if (me >= 0 && my >= 0) {
+          uint64_t *ME = pool + (size_t) me * TW;
+          uint64_t *MY = pool + (size_t) my * TW;
+          for (int wa = 0; wa < TW; wa++)
+            for (uint64_t x = ME[wa]; x; x &= x - 1) {
+              int a = wa * 64 + __builtin_ctzll (x);
+              for (int wb = 0; wb < TW; wb++)
+                for (uint64_t y = MY[wb]; y; y &= y - 1)
+                  fprintf (pairs_out, "%d %d %u\n",
+                           a, wb * 64 + __builtin_ctzll (y), v);
+            }
+          for (int w = 0; w < TW; w++) ME[w] |= MY[w];
+          pool_used[my] = 0;
+          maskidx[young] = -1;
+        } else if (my >= 0) {
+          maskidx[elder] = my;
+          maskidx[young] = -1;
+        }
+      }
       uint32_t l1 = lc[elder], l2 = lc[young];
       uint32_t merged_lc;
       if (birth[young] == v) merged_lc = l1 + l2 - 1;  // consolidation
@@ -172,6 +252,10 @@ int main (int argc, char **argv) {
           barrier_max);
   if (do_lex)
     printf (",\"lex_basins\":%llu", (unsigned long long) lex_basins);
+  if (pairs_path) {
+    fclose (pairs_out);
+    printf (",\"pairs_out\":\"%s.out\",\"n_targets\":%d", pairs_path, T);
+  }
   printf ("}\n");
   return 0;
 }
