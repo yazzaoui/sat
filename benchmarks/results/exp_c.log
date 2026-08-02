@@ -1,0 +1,33 @@
+mchess12 C0: conflicts=39848 wall=0.35s transfers=0 harvest_events=1429 exit=20 verified=yes
+mchess12 C1: conflicts=98661 wall=0.77s transfers=2558 harvest_events=3086 exit=20 verified=yes
+mchess12 C2: conflicts=97052 wall=0.66s transfers=467 harvest_events=2698 exit=20 verified=yes
+mchess12 C3: conflicts=97809 wall=1.68s transfers=2643 harvest_events=2643 exit=20 verified=yes
+mchess14 C0: conflicts=279631 wall=3.29s transfers=0 harvest_events=6574 exit=20 verified=yes
+mchess14 C1: conflicts=450448 wall=3.23s transfers=7314 harvest_events=8549 exit=20 verified=yes
+mchess14 C2: conflicts=320811 wall=2.60s transfers=1091 harvest_events=6856 exit=20 verified=yes
+mchess14 C3: conflicts=526301 wall=3.52s transfers=11022 harvest_events=11022 exit=20 verified=yes
+mchess16 C0: conflicts=1008742 wall=10.05s transfers=0 harvest_events=19431 exit=20 verified=yes
+mchess16 C1: conflicts=3172655 wall=22.33s transfers=38350 harvest_events=43188 exit=20 verified=yes
+mchess16 C2: conflicts=1461353 wall=7.20s transfers=2977 harvest_events=23268 exit=20 verified=yes
+mchess16 C3: conflicts=2596551 wall=13.96s transfers=37271 harvest_events=37271 exit=20 verified=yes
+tseitin30 C0: conflicts=7316 wall=0.05s transfers=0 harvest_events=544 exit=20 verified=yes
+tseitin30 C1: conflicts=7350 wall=0.05s transfers=293 harvest_events=540 exit=20 verified=yes
+tseitin30 C2: conflicts=318277 wall=1.04s transfers=1977 harvest_events=11633 exit=20 verified=yes
+tseitin30 C3: conflicts=175899 wall=0.63s transfers=6804 harvest_events=6804 exit=20 verified=yes
+tseitin40 C0: conflicts=162220 wall=1.09s transfers=0 harvest_events=10169 exit=20 verified=yes
+tseitin40 C1: conflicts=160599 wall=1.06s transfers=5032 harvest_events=10088 exit=20 verified=yes
+tseitin40 C2: conflicts=902984 wall=2.99s transfers=4376 harvest_events=22246 exit=20 verified=yes
+tseitin40 C3: conflicts=120514 wall=0.50s transfers=4229 harvest_events=4229 exit=20 verified=yes
+tseitin50 C0: conflicts=25868 wall=0.17s transfers=0 harvest_events=1775 exit=20 verified=yes
+tseitin50 C1: conflicts=25868 wall=0.17s transfers=809 harvest_events=1775 exit=20 verified=yes
+tseitin50 C2: conflicts=45877 wall=0.25s transfers=1498 harvest_events=3091 exit=20 verified=yes
+tseitin50 C3: conflicts=45888 wall=0.24s transfers=3092 harvest_events=3092 exit=20 verified=yes
+php12 C0: conflicts=487 wall=0.03s transfers=0 harvest_events=372 exit=20 verified=yes
+php12 C1: conflicts=487 wall=0.03s transfers=0 harvest_events=372 exit=20 verified=yes
+php12 C2: conflicts=487 wall=0.03s transfers=372 harvest_events=372 exit=20 verified=yes
+php12 C3: conflicts=487 wall=0.03s transfers=372 harvest_events=372 exit=20 verified=yes
+Traceback (most recent call last):
+  File "/Users/youmew/research/pnp/scripts/exp_c.py", line 23, in <module>
+    end = [e for e in events if e['ev']=='run_end'][0]
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range

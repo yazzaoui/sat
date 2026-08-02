@@ -83,6 +83,13 @@ def main():
                  if row[k] is not None}
         if len(exits) > 1:
             row["labels"] += " RESULT-MISMATCH"
+        # A non-solver exit (not 10/20/timeout) is a parse or crash error,
+        # not a timing — identical failures across arms must not pass
+        # silently (SATLIB uf header bug, caught in Experiment C).
+        if any(row[k] not in (10, 20, None)
+               for k in ("cadical_exit", "stock_exit", "filter_exit",
+                         "pruneoff_exit")):
+            row["labels"] += " ARM-ERROR"
         rows.append(row)
         print(f"{name}: cov={row['coverage']:.0%} labels={row['labels']} "
               f"cadical={row['cadical']} stock={row['stock']} "

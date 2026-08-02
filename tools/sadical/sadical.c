@@ -1655,6 +1655,50 @@ static void seed_reduct (Solver * solver) {
   }
 }
 
+// Experiment C (docs/phase3-experiment-c-preregistration.md): harvest
+// the inner solver's variable-activity recency (VMTF queue tail) after a
+// reduct solve and, per arm, transfer it to the outer ordering through
+// the normal bump path. Heuristics only — no clauses, no assignments, no
+// proof-relevant state crosses the boundary (unsoundness structurally
+// impossible). Guard on inner conflicts: a propagation-only solve
+// computed no activity (this also makes PHP the built-in no-op canary).
+
+#define HARVEST_TOP_K 10
+
+static void harvest_inner_activity (Solver * solver, bool witness_found) {
+  SaDiCaL * sadical = solver->sadical;
+  Solver * inner = sadical->inner;
+  if (!inner->local.conflicts) return;
+  if (!sadical->eventlog && !sadical->opts.harvest) return;
+  int top[HARVEST_TOP_K], n = 0;
+  for (int idx = inner->queue.last; idx && n < HARVEST_TOP_K;
+       idx = var (inner, idx)->prev) {
+    int outer_idx = var (inner, idx)->mapped;
+    if (outer_idx) top[n++] = outer_idx;
+  }
+  if (sadical->eventlog) {			// Log-always, transfer-per-arm.
+    fprintf (sadical->eventlog,
+      "{\"ev\":\"harvest\",\"id\":%ld,\"outcome\":\"%s\","
+      "\"inner_conflicts\":%ld,\"vars\":[",
+      sadical->attempts, witness_found ? "succ" : "fail",
+      inner->local.conflicts);
+    for (int i = 0; i < n; i++)
+      fprintf (sadical->eventlog, "%s%d", i ? "," : "", top[i]);
+    fputs ("]}\n", sadical->eventlog);
+  }
+  bool transfer = witness_found ? (sadical->opts.harvest & 2)
+                                : (sadical->opts.harvest & 1);
+  if (!transfer) return;
+  sadical->harvests++;
+  // Reverse order: the most active inner variable ends frontmost.
+  for (int i = n - 1; i >= 0; i--) {
+    int idx = top[i];
+    if (idx == solver->queue.last) continue;
+    dequeue (solver, idx);
+    enqueue_last (solver, idx);
+  }
+}
+
 static bool try_template_witness (Solver * solver, bool measure_only) {
   SaDiCaL * sadical = solver->sadical;
   sadical->templates.via_template = false;
@@ -1904,6 +1948,7 @@ static bool prune (Solver * solver) {
         sadical->inner->local.decisions - ev_decisions);
     res = false;
   }
+  harvest_inner_activity (solver, witness_found);
   clear_inner_solver (sadical->inner);
   sadical->time.pruning += sadical_process_time () - start;
   return res;
@@ -1948,11 +1993,11 @@ int sadical_solve (SaDiCaL * sadical) {
       "{\"ev\":\"run_end\",\"result\":%d,\"time_s\":%.3f,\"pruned\":%ld,"
       "\"reduct_unsat\":%ld,\"conflicts\":%ld,"
       "\"template_tried\":%ld,\"template_accepted\":%ld,"
-      "\"template_warm\":%ld}\n",
+      "\"template_warm\":%ld,\"harvests\":%ld}\n",
       res, sadical_process_time () - ev_start, sadical->pruned,
       sadical->reduct.unsat, sadical->outer->local.conflicts,
       sadical->templates.tried, sadical->templates.accepted,
-      sadical->templates.warm);
+      sadical->templates.warm, sadical->harvests);
     fflush (sadical->eventlog);
   }
   if (sadical->templates.count)

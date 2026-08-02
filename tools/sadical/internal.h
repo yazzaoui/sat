@@ -45,6 +45,7 @@ OPTION(tplminhit,int,90,0,100,"min template hit %% to keep filtering") \
 OPTION(tplpruneoff,int,5,0,100,"below this hit %% disable pruning entirely") \
 OPTION(tplminaccept,int,25,0,100,"prune-off also needs acceptance %% below this") \
 OPTION(tpltimecap,double,5.0,0,1e9,"probation wall-clock cap in seconds (0=off)") \
+OPTION(harvest,int,0,0,3,"transfer inner activity out (1=fail,2=succ,3=both)") \
 OPTION(seed,int,0,0,3,"reduct seeding from conflict analysis (1=order,2=phase,3=both)") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
@@ -499,6 +500,7 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
   const char * eventlog_path;
   bool close_eventlog;
   long attempts;		// Event id counter for 'attempt' events.
+  long harvests;		// Inner-activity transfers performed.
 
   // Involution templates (structure-derived witness proposals).
 

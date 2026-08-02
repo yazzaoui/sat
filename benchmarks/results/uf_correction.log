@@ -1,0 +1,3 @@
+uf100-01 cadical=0.03s/exit10 stock=0.59s/exit10 pruneoff=0.01s/exit10
+uf100-010 cadical=0.01s/exit10 stock=0.54s/exit10 pruneoff=0.01s/exit10
+uf100-0100 cadical=0.02s/exit10 stock=7.30s/exit10 pruneoff=0.01s/exit10
