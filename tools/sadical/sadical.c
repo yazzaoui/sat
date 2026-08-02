@@ -1627,7 +1627,7 @@ static void warm_start_from_writes (Solver * solver, Ints * written) {
   sadical->templates.warm++;
 }
 
-static bool try_template_witness (Solver * solver) {
+static bool try_template_witness (Solver * solver, bool measure_only) {
   SaDiCaL * sadical = solver->sadical;
   sadical->templates.via_template = false;
   sadical->templates.via_warm = false;
@@ -1654,7 +1654,17 @@ static bool try_template_witness (Solver * solver) {
       if (try_one_involution (solver, sadical->templates.touch[t], &written)) {
         sadical->templates.accepted++;
         stop = true;
-        if (sadical->opts.tplwarm) {
+        if (measure_only) {
+          // Probation: record the hit but discard the witness — the
+          // caller runs the plain reduct solve, so probation-phase search
+          // behavior (and steering) is exactly stock.
+          for (int * p = written.begin; p != written.end; p++) {
+            sadical->inner->vals[*p] = 0;
+            sadical->inner->vals[-*p] = 0;
+          }
+          CLEAR (written);
+          sadical->templates.via_template = true;	// Accounting only.
+        } else if (sadical->opts.tplwarm) {
           // Not a witness yet: undo trial writes, inject flip units and
           // let the caller run the (now warm) inner solve.
           warm_start_from_writes (solver, &written);
@@ -1705,13 +1715,14 @@ static bool prune (Solver * solver) {
     ev_conflicts = sadical->inner->local.conflicts;
     ev_decisions = sadical->inner->local.decisions;
   }
-  bool witness_found = try_template_witness (solver);
-  // Filter probation: while measuring, never skip the reduct solve, so
-  // template hit share is judged against ground truth (witness existed).
-  // Below 'tplminhit' the filter is permanently disabled — coverage alone
-  // does not predict filter safety (chessboard: 100% coverage, 58% hits).
+  // Filter probation: while measuring, template results are accounting
+  // only and the reduct solve always runs — probation-phase behavior is
+  // exactly stock. Below 'tplminhit' the filter is permanently disabled —
+  // coverage alone does not predict filter safety (chessboard: 100%
+  // coverage, 54% hits; flat coloring: 100% coverage, 0% hits).
   bool probation = sadical->templates.count && sadical->opts.tplfilter &&
     sadical->templates.probes < sadical->opts.tplprobation;
+  bool witness_found = try_template_witness (solver, probation);
   if (!witness_found &&
       (probation || sadical->templates.via_warm ||
        !(sadical->templates.count && sadical->opts.tplfilter)))
@@ -1723,9 +1734,18 @@ static bool prune (Solver * solver) {
     if (sadical->templates.probes >= sadical->opts.tplprobation) {
       long pct =
         100 * sadical->templates.probe_hits / sadical->templates.probes;
-      if (pct < sadical->opts.tplminhit) {
+      if (pct < sadical->opts.tplpruneoff) {
+        // Witnesses at stuck points match no known structure move: the
+        // hunt is judged unprofitable — run as plain CDCL from here on.
         sadical->opts.tplfilter = false;
-        MSG (1, "template filter disabled after probation (%ld%% hits)", pct);
+        sadical->opts.prune = false;
+        MSG (1, "pruning disabled after probation (%ld%% hits)", pct);
+      } else if (pct < sadical->opts.tplminhit) {
+        // Partial hit share: direct template witnesses degrade steering
+        // (trajectory study), so revert to pure stock behavior.
+        sadical->opts.tplfilter = false;
+        sadical->templates.count = 0;
+        MSG (1, "templates disabled after probation (%ld%% hits)", pct);
       } else
         MSG (1, "template filter confirmed by probation (%ld%% hits)", pct);
     }
