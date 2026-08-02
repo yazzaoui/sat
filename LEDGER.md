@@ -45,4 +45,13 @@ verification, reproduction). Newest last.
    refinement (hitting-time conductance), weak prior, own registration
    required.
    ([coupled-moves/RESULTS.md](coupled-moves/RESULTS.md))
-7. **[S2 plateau-structure]** — open.
+7. **[S2 plateau-structure, closed]** Under canonical basin analysis,
+   the standard secondary-signal menu imposes no plateau structure
+   beyond what local flatness-degree itself carries; under strict
+   refined descent, its best signal steers at sub-1.5× and its worst
+   traps up to 49% of walkers in exit-free regions while passing a
+   correlation screen — plateau featurelessness is robust through the
+   folklore lens, and plateau escape in practice must be explained by
+   mechanisms other than potential refinement (noise, restarts, age),
+   not by the signals' geographic content.
+   ([plateau-structure/RESULTS.md](plateau-structure/RESULTS.md))
