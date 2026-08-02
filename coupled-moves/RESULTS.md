@@ -3,6 +3,6 @@
 | Phase | Question | Document | Verdict |
 |---|---|---|---|
 | P0 | Which coupled-move variants are provably distinct from baseline geometry? | [P0-formalization](docs/P0-formalization.md) | **Complete, paper-only.** Variants 1 (eager) and 3 (bundled altitude) inert by proof; variant 2 collapses under orig-V and from consistent starts; **survivor: lazy propagation, full-V, stale-inclusive state space** — directed, irreversible, carrying both corridor-opening (accidental repair) and solution-repelling (stale altitude) mechanisms. Canonical attractor definition fixed (terminal SCCs, tie-break-free). Kill criterion did not fire. |
-| P1 | Net conductance: do Cook's corridors outweigh their mines, beyond what sensitivity-matched controls produce? | [P1-registration](docs/P1-registration.md) — awaiting approval before code | — |
+| P1 | Net conductance: do Cook's corridors outweigh their mines, beyond controls? | [P1-registration](docs/P1-registration.md) | **Awkward branch, strongest form ([P1-results](docs/P1-results.md)):** NET identical to machine precision across Cook and all random seeds — an exact counting identity NET = 23·511/2²⁵ (staleness unlocks other solutions' dressings; loss ≡ 0, mines bend paths but sever nothing; BVA fully degenerate). **Definition-generic; H1-successor NOT supported.** Theorem F proven-at-anchor by exhaustive masks. Engine canon deviation caught pre-report and fixed; P0 micro-examples now permanent engine checks. reproduce 7/7. |
 
-Ledger sentence: pending stream closure.
+Ledger sentence: pending lead review of P1 verdict (stream-closure decision).
