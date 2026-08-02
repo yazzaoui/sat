@@ -38,7 +38,16 @@ Pre-committed interpretation:
 - If a variant wins, Phase 3's mechanism is learned seeding (learn what
   to seed, from event logs), not witness ranking.
 
-## Experiment B: cost-prediction pilot (after A)
+## Experiment B: cost-prediction pilot (after A) — RETIRED, NOT RUN
+
+Retired by lead decision (2026-08-02) after Experiment C closed the
+boundary map: witness choice must remain untouched and nothing usefully
+crosses the inner/outer boundary, so a core-feature quality predictor
+has no remaining consumer for any outcome — and a registered experiment
+with no consumer for any outcome must not run (the discipline applied
+to ourselves). A spiritual successor may be re-registered as
+failure-time prediction with early-abort as the named consumer and its
+own bars. The registration below is preserved unedited for the record.
 
 Frame: cheap prediction of downstream cost from static core features —
 a weak predictor is still a proposal-ordering prior; a null is mechanism
