@@ -47,9 +47,15 @@ load-bearing exactly where the lead placed them.
   propagation machine-checked before geometry), C (BVA, degeneracy
   handling as registered), D (shape/count/layer-matched random,
   seeds 1–3, reported per-seed).
-- **UNSAT anchor (descriptive):** PHP(4) + full cascade — attractor-
-  level NET (attractors in place of solutions), no bars, appendix
-  status per L1 amendment clause 1.
+- **UNSAT anchor (descriptive ONLY — explicitly non-evidential):**
+  PHP(4) + full cascade, attractor-level NET. The baseline there is a
+  SINGLE attractor (the plateau discovery), so basin-mass deltas have
+  almost no structure to redistribute: corridor/mine accounting
+  against a one-basin baseline mostly measures fragmentation
+  bookkeeping, which Theorem B already explained. This cell
+  illustrates mechanisms (stale-repulsion exhibits); it bears no bar,
+  and its numbers are not evidence for or against any arm — the
+  sibling is the SOLE bar-bearing cell.
 - Nothing sampled. No claims beyond the anchors (P1 frame: exact only).
 
 ## 3. Feasibility (measured into this registration, lead requirement)
@@ -77,7 +83,10 @@ estimator touches the primary claim.
 - δ = 0.05 (five percentage points of state-space mass), pre-hoc.
 - **Supported (H1-successor):** mean-NET(B) > 0, and
   mean-NET(B) − mean-NET(C) ≥ δ, and mean-NET(B) − mean-NET(D) ≥ δ
-  (D: against the per-seed *maximum*).
+  (D: against the per-seed *maximum* — the strict comparator by
+  design, not accident: it guards against declaring Cook special when
+  the random-definition distribution has a tail that occasionally
+  matches it; B must beat D's best draw, not its average).
 - **The awkward branch, decided now (lead requirement):** if all
   definitional arms show both mechanisms with the same NET sign and
   separations below δ — magnitude-only differences — the verdict is
