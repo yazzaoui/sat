@@ -20,6 +20,17 @@ verification, reproduction). Newest last.
    Gaussian elimination), the basin estimator validates (ρ=0.98), and
    the barrier estimator honestly fails out.
    ([landscape-surgery/docs/L0-results.md](landscape-surgery/docs/L0-results.md))
+   *[Post-hoc annotation (S4 P0, lead-directed): the calibration's
+   operator was a COMPOSITE — column operations (coordinate change, a
+   true landscape bijection) plus row operations (constraint
+   rewriting, which changes V and is no bijection). Bijections alone
+   buy 5.7× merging on the anchor (68→12); the collapse to one basin
+   requires the rewriting half. "L0 validated the bijective operator"
+   was a composite result wearing a bijection's name. Third correction
+   of the lead's operator taxonomy by formalization — §1.2's
+   extension/bijection conflation, "Theorem B dies the moment moves
+   propagate," and this — recorded as a pattern because it is the
+   program's quality mechanism working.]*
 4. **[Landscape-surgery, plateau discovery]** An UNSAT refutation
    landscape, measured under a canonical basin definition for the
    first time, is not rugged — it is one undifferentiated plateau
