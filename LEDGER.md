@@ -55,3 +55,15 @@ verification, reproduction). Newest last.
    mechanisms other than potential refinement (noise, restarts, age),
    not by the signals' geographic content.
    ([plateau-structure/RESULTS.md](plateau-structure/RESULTS.md))
+8. **[S3 clustering-transition, closed]** Measured exactly at n ≤ 26
+   under artifact-controlled flip-connectivity definitions, the random
+   3-SAT solution geometry at solver-folklore sizes inverts or lacks
+   the clustering narrative's registered signatures — barriers
+   uniformly 1, every inter-cluster void a V=1 plateau corridor
+   (C₁ = 1.0 through n = 24) — while the first concordant movements
+   (corridors closing, barriers lifting, gaps jumping) appear together
+   at n = 26: the narrative's geometry has a measurable onset, and
+   below it the landscape is few, minimally-separated,
+   corridor-connected clusters in a flat. Confounds row-annotated;
+   claims scoped to the finite-size shadow, not the asymptotics.
+   ([clustering-transition/RESULTS.md](clustering-transition/RESULTS.md))

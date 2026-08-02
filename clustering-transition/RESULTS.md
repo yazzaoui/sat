@@ -7,4 +7,4 @@
 | S3b | Barriers or corridors? | [S3-results](docs/S3-results.md) | **Corridor trigger FIRES at full strength:** barriers uniformly 1 (Spearman exactly 0), C₁ = 1.0 at every n ≤ 24 cell — every inter-cluster void is a V=1 plateau flat |
 | S3c | Finite-size trends | [S3-results](docs/S3-results.md) | First concordant movements appear only at n=26 (C₁ 1.0→0.67/0.0, barriers 1→1.5–2, one gap →12): the asymptotic picture begins to bite above n≈26; below it, the geometry is inverted |
 
-Ledger sentence: proposed in S3-results.md; awaiting lead closure (entry 8 reserved).
+**Stream closed by lead.** Ledger sentence recorded verbatim in [../LEDGER.md](../LEDGER.md) (entry 8). Row-2 confound annotated post-hoc per closure directive; post-hoc complexity columns added, non-verdict-bearing.
