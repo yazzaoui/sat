@@ -1,0 +1,378 @@
+{
+ "S2a": {
+  "php4": {
+   "level_size": 60,
+   "exposure": {
+    "leaves": 24,
+    "components": 1,
+    "structured": false
+   },
+   "critical": {
+    "leaves": 24,
+    "components": 1,
+    "structured": false
+   },
+   "decidedness": {
+    "leaves": 1,
+    "components": 1,
+    "structured": false
+   },
+   "mobility": {
+    "leaves": 36,
+    "components": 1
+   }
+  },
+  "php5": {
+   "level_size": 360,
+   "exposure": {
+    "leaves": 120,
+    "components": 1,
+    "structured": false
+   },
+   "critical": {
+    "leaves": 120,
+    "components": 1,
+    "structured": false
+   },
+   "decidedness": {
+    "leaves": 1,
+    "components": 1,
+    "structured": false
+   },
+   "mobility": {
+    "leaves": 240,
+    "components": 1
+   }
+  },
+  "r3_3": {
+   "level_size": 43,
+   "exposure": {
+    "leaves": 4,
+    "components": 3,
+    "structured": false
+   },
+   "critical": {
+    "leaves": 3,
+    "components": 3,
+    "structured": false
+   },
+   "decidedness": {
+    "leaves": 3,
+    "components": 3,
+    "structured": false
+   },
+   "mobility": {
+    "leaves": 6,
+    "components": 3
+   }
+  },
+  "r3_4": {
+   "level_size": 553,
+   "exposure": {
+    "leaves": 11,
+    "components": 4,
+    "structured": false
+   },
+   "critical": {
+    "leaves": 7,
+    "components": 4,
+    "structured": false
+   },
+   "decidedness": {
+    "leaves": 4,
+    "components": 4,
+    "structured": false
+   },
+   "mobility": {
+    "leaves": 52,
+    "components": 4
+   }
+  },
+  "r3_7": {
+   "level_size": 479,
+   "exposure": {
+    "leaves": 11,
+    "components": 6,
+    "structured": false
+   },
+   "critical": {
+    "leaves": 11,
+    "components": 6,
+    "structured": false
+   },
+   "decidedness": {
+    "leaves": 9,
+    "components": 6,
+    "structured": false
+   },
+   "mobility": {
+    "leaves": 49,
+    "components": 6
+   }
+  },
+  "r3_9": {
+   "level_size": 89,
+   "exposure": {
+    "leaves": 10,
+    "components": 7,
+    "structured": false
+   },
+   "critical": {
+    "leaves": 10,
+    "components": 7,
+    "structured": false
+   },
+   "decidedness": {
+    "leaves": 7,
+    "components": 7,
+    "structured": false
+   },
+   "mobility": {
+    "leaves": 21,
+    "components": 7
+   }
+  }
+ },
+ "S2b": {
+  "php44": {
+   "level_size": 816,
+   "exits": 384,
+   "unreachable_mass": 0.0,
+   "exposure": {
+    "rho": -0.0266,
+    "hit": 1.765,
+    "trapped_mass": 0.0,
+    "ratio": 0.7
+   },
+   "critical": {
+    "rho": -0.0266,
+    "hit": 1.765,
+    "trapped_mass": 0.0,
+    "ratio": 0.7
+   },
+   "decidedness": {
+    "rho": -0.8247,
+    "hit": 0.918,
+    "trapped_mass": 0.0,
+    "ratio": 1.346
+   },
+   "mobility": {
+    "rho": 0.4459,
+    "hit": 1.765,
+    "trapped_mass": 0.0,
+    "ratio": 0.7
+   },
+   "blind_hit": 1.235
+  },
+  "php55": {
+   "level_size": 7200,
+   "exits": 3000,
+   "unreachable_mass": 0.0,
+   "exposure": {
+    "rho": 0.051,
+    "hit": 0.833,
+    "trapped_mass": 0.0,
+    "ratio": 2.05
+   },
+   "critical": {
+    "rho": 0.051,
+    "hit": 0.833,
+    "trapped_mass": 0.0,
+    "ratio": 2.05
+   },
+   "decidedness": {
+    "rho": -0.7606,
+    "hit": 1.152,
+    "trapped_mass": 0.0,
+    "ratio": 1.484
+   },
+   "mobility": {
+    "rho": 0.3269,
+    "hit": 2.583,
+    "trapped_mass": 0.0,
+    "ratio": 0.661
+   },
+   "blind_hit": 1.708
+  },
+  "r3_1": {
+   "level_size": 104,
+   "exits": 20,
+   "unreachable_mass": 0.3557692307692307,
+   "exposure": {
+    "rho": -0.8234,
+    "hit": 7.174,
+    "trapped_mass": 0.0,
+    "ratio": 4.363
+   },
+   "critical": {
+    "rho": -0.8214,
+    "hit": 5.584,
+    "trapped_mass": 0.0,
+    "ratio": 5.605
+   },
+   "decidedness": {
+    "rho": -0.7836,
+    "hit": 30.224,
+    "trapped_mass": 0.0,
+    "ratio": 1.036
+   },
+   "mobility": {
+    "rho": 0.481,
+    "hit": null,
+    "trapped_mass": 0.0385,
+    "ratio": 0.0
+   },
+   "blind_hit": 31.301
+  },
+  "r3_2": {
+   "level_size": 407,
+   "exits": 120,
+   "unreachable_mass": 0.09828009828009832,
+   "exposure": {
+    "rho": 0.0528,
+    "hit": null,
+    "trapped_mass": 0.1622,
+    "ratio": 0.0
+   },
+   "critical": {
+    "rho": 0.1087,
+    "hit": null,
+    "trapped_mass": 0.1229,
+    "ratio": 0.0
+   },
+   "decidedness": {
+    "rho": -0.2641,
+    "hit": null,
+    "trapped_mass": 0.0688,
+    "ratio": 0.0
+   },
+   "mobility": {
+    "rho": 0.1929,
+    "hit": null,
+    "trapped_mass": 0.0835,
+    "ratio": 0.0
+   },
+   "blind_hit": 14.903
+  },
+  "r3_5": {
+   "level_size": 293,
+   "exits": 38,
+   "unreachable_mass": 0.2627986348122867,
+   "exposure": {
+    "rho": -0.3179,
+    "hit": null,
+    "trapped_mass": 0.1945,
+    "ratio": 0.0
+   },
+   "critical": {
+    "rho": -0.2349,
+    "hit": null,
+    "trapped_mass": 0.2799,
+    "ratio": 0.0
+   },
+   "decidedness": {
+    "rho": -0.2409,
+    "hit": null,
+    "trapped_mass": 0.2014,
+    "ratio": 0.0
+   },
+   "mobility": {
+    "rho": 0.0453,
+    "hit": null,
+    "trapped_mass": 0.1058,
+    "ratio": 0.0
+   },
+   "blind_hit": 162.605
+  },
+  "r3_6": {
+   "level_size": 423,
+   "exits": 180,
+   "unreachable_mass": 0.04255319148936165,
+   "exposure": {
+    "rho": 0.4037,
+    "hit": null,
+    "trapped_mass": 0.0142,
+    "ratio": 0.0
+   },
+   "critical": {
+    "rho": 0.2561,
+    "hit": null,
+    "trapped_mass": 0.0189,
+    "ratio": 0.0
+   },
+   "decidedness": {
+    "rho": 0.0557,
+    "hit": null,
+    "trapped_mass": 0.0946,
+    "ratio": 0.0
+   },
+   "mobility": {
+    "rho": 0.1332,
+    "hit": null,
+    "trapped_mass": 0.1017,
+    "ratio": 0.0
+   },
+   "blind_hit": 42.658
+  },
+  "r3_8": {
+   "level_size": 376,
+   "exits": 60,
+   "unreachable_mass": 0.037234042553191515,
+   "exposure": {
+    "rho": 0.5387,
+    "hit": null,
+    "trapped_mass": 0.4894,
+    "ratio": 0.0
+   },
+   "critical": {
+    "rho": 0.5676,
+    "hit": null,
+    "trapped_mass": 0.3431,
+    "ratio": 0.0
+   },
+   "decidedness": {
+    "rho": -0.1702,
+    "hit": null,
+    "trapped_mass": 0.3537,
+    "ratio": 0.0
+   },
+   "mobility": {
+    "rho": 0.2418,
+    "hit": null,
+    "trapped_mass": 0.2048,
+    "ratio": 0.0
+   },
+   "blind_hit": 326.843
+  },
+  "r3_10": {
+   "level_size": 503,
+   "exits": 248,
+   "unreachable_mass": 0.031809145129224614,
+   "exposure": {
+    "rho": 0.4553,
+    "hit": null,
+    "trapped_mass": 0.0258,
+    "ratio": 0.0
+   },
+   "critical": {
+    "rho": 0.4466,
+    "hit": null,
+    "trapped_mass": 0.0258,
+    "ratio": 0.0
+   },
+   "decidedness": {
+    "rho": -0.2764,
+    "hit": null,
+    "trapped_mass": 0.0199,
+    "ratio": 0.0
+   },
+   "mobility": {
+    "rho": 0.3444,
+    "hit": null,
+    "trapped_mass": 0.0537,
+    "ratio": 0.0
+   },
+   "blind_hit": 8.888
+  }
+ }
+}
