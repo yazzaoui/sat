@@ -1,8 +1,8 @@
-tools/cadical/
-tools/dpr-trim/
-tools/sadical.zip
-benchmarks/cnf/
-benchmarks/proofs/
+common/tools/cadical/
+common/tools/dpr-trim/
+common/tools/sadical.zip
+witness-search/benchmarks/cnf/
+witness-search/benchmarks/proofs/
+witness-search/benchmarks/competition/
 *.o
 *.a
-benchmarks/competition/

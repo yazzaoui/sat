@@ -19,9 +19,9 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CADICAL = ROOT / "tools/cadical/build/cadical"
-SADICAL = ROOT / "tools/sadical/sadical"
-DPRTRIM = ROOT / "tools/dpr-trim/dpr-trim"
+CADICAL = ROOT.parent / "common/tools/cadical/build/cadical"
+SADICAL = ROOT.parent / "common/tools/sadical/sadical"
+DPRTRIM = ROOT.parent / "common/tools/dpr-trim/dpr-trim"
 
 results = []
 
@@ -36,7 +36,7 @@ def gen(work, family, arg):
     script = {"php": "php.py", "mchess": "chessboard.py",
               "tseitin": "tseitin.py"}[family]
     out.write_text(subprocess.run(
-        [sys.executable, str(ROOT / "generators" / script), str(arg)],
+        [sys.executable, str(ROOT.parent / "common/generators" / script), str(arg)],
         capture_output=True, text=True, check=True).stdout)
     return out
 

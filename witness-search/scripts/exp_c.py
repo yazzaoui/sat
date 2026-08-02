@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Experiment C matrix: arms C0-C3 x instances, per pre-registration."""
 import glob, json, subprocess, sys, time
-R = '/Users/youmew/research/pnp'
+R = str(__import__('pathlib').Path(__file__).resolve().parent.parent)
 S = sys.argv[1]
 def find(name):
     for pat in (f'{R}/benchmarks/cnf/{name}.cnf', f'{R}/benchmarks/competition/**/{name}.cnf'):
@@ -15,7 +15,7 @@ for name in INSTANCES:
         ev = f'{S}/expC_{name}_c{arm}.events.jsonl'
         pr = f'{S}/expC_{name}_c{arm}.pr'
         t0 = time.time()
-        r = subprocess.run([f'{R}/tools/sadical/sadical','-q','-n','--binary=false','-f',
+        r = subprocess.run([f'{R}/../common/tools/sadical/sadical','-q','-n','--binary=false','-f',
                             f'--harvest={arm}', f'--eventlog={ev}', cnf, pr],
                            capture_output=True, timeout=600)
         wall = time.time() - t0
@@ -24,7 +24,7 @@ for name in INSTANCES:
         harv = [e for e in events if e['ev']=='harvest']
         verified = '-'
         if r.returncode == 20:
-            v = subprocess.run([f'{R}/tools/dpr-trim/dpr-trim', cnf, pr],
+            v = subprocess.run([f'{R}/../common/tools/dpr-trim/dpr-trim', cnf, pr],
                                capture_output=True, text=True)
             verified = 'yes' if 's VERIFIED' in v.stdout else 'NO'
         print(f"{name} C{arm}: conflicts={end['conflicts']} wall={wall:.2f}s "

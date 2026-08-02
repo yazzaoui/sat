@@ -17,17 +17,17 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CADICAL = ROOT / "tools/cadical/build/cadical"
-SADICAL = ROOT / "tools/sadical/sadical"
-DPRTRIM = ROOT / "tools/dpr-trim/dpr-trim"
+CADICAL = ROOT.parent / "common/tools/cadical/build/cadical"
+SADICAL = ROOT.parent / "common/tools/sadical/sadical"
+DPRTRIM = ROOT.parent / "common/tools/dpr-trim/dpr-trim"
 CNF = ROOT / "benchmarks/cnf"
 PROOFS = ROOT / "benchmarks/proofs"
 RESULTS = ROOT / "benchmarks/results"
 
 GENERATORS = {
-    "php": ROOT / "generators/php.py",
-    "mchess": ROOT / "generators/chessboard.py",
-    "tseitin": ROOT / "generators/tseitin.py",
+    "php": ROOT.parent / "common/generators/php.py",
+    "mchess": ROOT.parent / "common/generators/chessboard.py",
+    "tseitin": ROOT.parent / "common/generators/tseitin.py",
 }
 
 

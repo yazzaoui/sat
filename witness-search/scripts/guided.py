@@ -16,7 +16,7 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SADICAL = ROOT / "tools/sadical/sadical"
+SADICAL = ROOT.parent / "common/tools/sadical/sadical"
 
 def main():
     args = sys.argv[1:]

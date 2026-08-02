@@ -18,8 +18,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SCRATCH = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "benchmarks/results"
 TIMEOUT = 120
 
-CADICAL = ROOT / "tools/cadical/build/cadical"
-SADICAL = ROOT / "tools/sadical/sadical"
+CADICAL = ROOT.parent / "common/tools/cadical/build/cadical"
+SADICAL = ROOT.parent / "common/tools/sadical/sadical"
 COMP = ROOT / "benchmarks/competition"
 
 

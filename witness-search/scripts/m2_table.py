@@ -25,9 +25,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SCRATCH = Path(sys.argv[1])
 TIMEOUT = 120
-CADICAL = ROOT / "tools/cadical/build/cadical"
-SADICAL = ROOT / "tools/sadical/sadical"
-DPRTRIM = ROOT / "tools/dpr-trim/dpr-trim"
+CADICAL = ROOT.parent / "common/tools/cadical/build/cadical"
+SADICAL = ROOT.parent / "common/tools/sadical/sadical"
+DPRTRIM = ROOT.parent / "common/tools/dpr-trim/dpr-trim"
 
 
 def timed(cmd, timeout=TIMEOUT):

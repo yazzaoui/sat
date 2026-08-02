@@ -24,8 +24,8 @@ from pr_check import is_pr
 from template_php import counting_grid, propose
 
 ROOT = Path(__file__).resolve().parent.parent
-DPRTRIM = ROOT / "tools/dpr-trim/dpr-trim"
-CADICAL = ROOT / "tools/cadical/build/cadical"
+DPRTRIM = ROOT.parent / "common/tools/dpr-trim/dpr-trim"
+CADICAL = ROOT.parent / "common/tools/cadical/build/cadical"
 
 
 def dpr_verifies(cnf_path, head_lines, tmpdir):
