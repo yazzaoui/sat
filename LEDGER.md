@@ -33,4 +33,16 @@ verification, reproduction). Newest last.
    re-coordinatization, and ER's power must enter through move
    structure, not terrain.
    ([landscape-surgery/docs/extension-inertness-theorems.md](landscape-surgery/docs/extension-inertness-theorems.md))
-6. **[S1 coupled-moves]** — open.
+6. **[S1 coupled-moves, closed — Theorem F]** Under lazy-propagation
+   descent at the exact anchor, net conductance is a counting identity —
+   staleness unlocks solution-to-solution mobility exactly uniformly
+   across all definitional arms; corridors and mines exist but cancel
+   identically at the reachability level, indifferent to definition
+   content. Combined with Theorems A/B (terrain) and C/D/E
+   (move-structure collapses), ER's proven power leaves no geometric
+   trace in assignment space under any lens this program could
+   construct. Remaining substrate: proof space (S5). Parked: dynamical
+   refinement (hitting-time conductance), weak prior, own registration
+   required.
+   ([coupled-moves/RESULTS.md](coupled-moves/RESULTS.md))
+7. **[S2 plateau-structure]** — open.
