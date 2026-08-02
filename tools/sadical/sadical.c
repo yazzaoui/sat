@@ -680,6 +680,11 @@ static int analyze (Solver * solver, Clause * conflict) {
   backtrack (solver, jump);
   assign (solver, -uip, c);
   if (sadical->opts.bump) bump_analyzed (solver);
+  if (sadical->opts.seed && solver == sadical->outer) {
+    CLEAR (sadical->last_analyzed);
+    for (Var ** p = solver->analyzed.begin; p < solver->analyzed.end; p++)
+      PUSH (sadical->last_analyzed, (int) (*p - solver->vars));
+  }
   CLEAR (solver->analyzed);
   return 0;
 }
@@ -1627,6 +1632,29 @@ static void warm_start_from_writes (Solver * solver, Ints * written) {
   sadical->templates.warm++;
 }
 
+// Experiment A (docs/phase3-preregistration.md): seed the reduct solve
+// with guidance — never constraints — from the outer solver's most recent
+// conflict analysis. Variant bits: 1 = decision order (analyzed variables
+// decided first), 2 = phase (initialized to the flip of alpha).
+
+static void seed_reduct (Solver * solver) {
+  SaDiCaL * sadical = solver->sadical;
+  if (!sadical->opts.seed) return;
+  Solver * inner = sadical->inner;
+  for (int * p = sadical->last_analyzed.begin;
+       p != sadical->last_analyzed.end; p++) {
+    Var * ov = solver->vars + *p;
+    if (ov->stamp < solver->stamp) continue;	// Not in the reduct.
+    int m = ov->mapped;
+    if (sadical->opts.seed & 1) {
+      dequeue (inner, m);
+      enqueue_last (inner, m);			// VMTF: decided first.
+    }
+    if (sadical->opts.seed & 2)
+      var (inner, m)->phase = -val (solver, *p);
+  }
+}
+
 static bool try_template_witness (Solver * solver, bool measure_only) {
   SaDiCaL * sadical = solver->sadical;
   sadical->templates.via_template = false;
@@ -1701,6 +1729,7 @@ static bool prune (Solver * solver) {
   long ev_copied = sadical->reduct.clauses.copied;
   long ev_assumed = sadical->reduct.filter.assumed;
   generate_reduct (solver);
+  seed_reduct (solver);
   bool res;
   long ev_id = 0, ev_conflicts = 0, ev_decisions = 0;
   double ev_start = 0;
@@ -2198,6 +2227,7 @@ void sadical_delete (SaDiCaL * sadical) {
     fclose (sadical->proof);
   if (sadical->eventlog && sadical->close_eventlog)
     fclose (sadical->eventlog);
+  GRELEASE (sadical->last_analyzed);
   free (sadical->templates.pairs);
   free (sadical->templates.offsets);
   free (sadical->templates.touch);

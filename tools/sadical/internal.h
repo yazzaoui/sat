@@ -43,6 +43,7 @@ OPTION(tplwarm,bool,false,0,1,"template hit warm-starts the reduct solve") \
 OPTION(tplprobation,int,200,0,INT_MAX,"filter probation window (attempts)") \
 OPTION(tplminhit,int,90,0,100,"min template hit %% to keep filtering") \
 OPTION(tplpruneoff,int,5,0,100,"below this hit %% disable pruning entirely") \
+OPTION(seed,int,0,0,3,"reduct seeding from conflict analysis (1=order,2=phase,3=both)") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
 OPTION(verbose,int,1,0,5,"verbose level") \
@@ -513,6 +514,9 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
     bool via_template;		// Last accept came from a template.
     bool via_warm;		// Last accept was warm-started.
   } templates;
+
+  Ints last_analyzed;		// Outer var indices from the most recent
+				// conflict analysis (reduct seeding).
 
   /*----------------------------------------------------------------------*/
 
