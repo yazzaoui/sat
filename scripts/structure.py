@@ -151,10 +151,116 @@ def recover(clauses):
     }
 
 
+def emit_involutions(clauses, overlay, path):
+    """Write witness-template involutions derived from detected structure.
+
+    Format: whitespace integers; each involution = variable pairs
+    terminated by 0. Pair (u,u) = flip u; (u,v) = swap values of u and v.
+      counting -> row-pair block swaps
+      grid     -> 2x2 face rotations (both pairings per face)
+      parity   -> XOR-cycle flips (3- and 4-cycles of constraints)
+    """
+    invs = []
+    blocks = [c["vars"] for c in overlay["constructs"]
+              if c["type"] in ("exactly-one", "at-most-one")]
+
+    # Counting: rows = positive covering clauses over the column blocks.
+    col_of = {}
+    for j, col in enumerate(blocks):
+        for v in col:
+            col_of[v] = j
+    rows = []
+    for c in clauses:
+        if all(l > 0 for l in c) and all(v in col_of for v in c):
+            rows.append({col_of[v]: v for v in c})
+    for a in range(len(rows)):
+        for b in range(a + 1, len(rows)):
+            shared = sorted(set(rows[a]) & set(rows[b]))
+            if len(shared) >= 2:
+                invs.append([(rows[a][j], rows[b][j]) for j in shared])
+
+    # Grid: faces = 4-cycles in the block intersection graph.
+    shared_var = {}
+    nbr = defaultdict(set)
+    for i in range(len(blocks)):
+        for j in range(i + 1, len(blocks)):
+            s = set(blocks[i]) & set(blocks[j])
+            if len(s) == 1:
+                shared_var[(i, j)] = shared_var[(j, i)] = s.pop()
+                nbr[i].add(j)
+                nbr[j].add(i)
+    # Re-tiling moves = alternating rotations along simple cycles of blocks
+    # (cells). Length 4 = 2x2 face, 6 = 2x3, 8 = 2x4 / 3x3 / L; the atlas
+    # flip-size distribution (median ~10 at n=14) says the tail matters.
+    seen = set()
+
+    def cycles_from(start, max_len):
+        stack = [(start, [start])]
+        while stack:
+            u, path = stack.pop()
+            for w in nbr[u]:
+                if w == start and len(path) >= 4:
+                    key = frozenset(path)
+                    if len(key) == len(path) and key not in seen:
+                        seen.add(key)
+                        yield list(path)
+                elif (w > start and w not in path and len(path) < max_len):
+                    stack.append((w, path + [w]))
+
+    for start in sorted(nbr):
+        for cyc in cycles_from(start, 8):
+            edges = [shared_var[(cyc[t], cyc[(t + 1) % len(cyc)])]
+                     for t in range(len(cyc))]
+            k = len(edges)
+            invs.append([(edges[t], edges[(t + 1) % k])
+                         for t in range(0, k, 2)])
+            invs.append([(edges[t], edges[(t + 1) % k])
+                         for t in range(1, k, 2)])
+
+    # Parity: cycles of XOR constraints; flip every shared variable.
+    xors = [c["vars"] for c in overlay["constructs"] if c["type"] == "xor"]
+    xshare = {}
+    xnbr = defaultdict(set)
+    for i in range(len(xors)):
+        for j in range(i + 1, len(xors)):
+            s = set(xors[i]) & set(xors[j])
+            if len(s) == 1:
+                xshare[(i, j)] = xshare[(j, i)] = s.pop()
+                xnbr[i].add(j)
+                xnbr[j].add(i)
+    xseen = set()
+    for i in xnbr:
+        for j in xnbr[i]:
+            for k in xnbr[j]:
+                if k == i:
+                    continue
+                if i in xnbr[k]:                       # triangle
+                    key = frozenset((i, j, k))
+                    if len(key) == 3 and key not in xseen:
+                        xseen.add(key)
+                        vs = [xshare[(i, j)], xshare[(j, k)], xshare[(k, i)]]
+                        invs.append([(v, v) for v in vs])
+                for l in xnbr[k] & xnbr[i]:            # square
+                    if l in (i, j, k):
+                        continue
+                    key = frozenset((i, j, k, l))
+                    if len(key) == 4 and key not in xseen:
+                        xseen.add(key)
+                        vs = [xshare[(i, j)], xshare[(j, k)],
+                              xshare[(k, l)], xshare[(l, i)]]
+                        invs.append([(v, v) for v in vs])
+
+    with open(path, "w") as f:
+        for inv in invs:
+            f.write(" ".join(f"{u} {v}" for u, v in inv) + " 0\n")
+    return len(invs)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cnf")
     ap.add_argument("--json", help="write full overlay JSON here")
+    ap.add_argument("--involutions", help="write witness-template involutions here")
     args = ap.parse_args()
     clauses = load_cnf(args.cnf)
     overlay = recover(clauses)
@@ -166,6 +272,9 @@ def main():
     print(f"{args.cnf}: labels={overlay['labels']} "
           f"coverage={overlay['coverage']:.0%} "
           f"constructs={dict(counts)} grid={overlay['grid_score']}")
+    if args.involutions:
+        n = emit_involutions(clauses, overlay, args.involutions)
+        print(f"wrote {n} involutions to {args.involutions}")
 
 
 if __name__ == "__main__":

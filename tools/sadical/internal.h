@@ -34,6 +34,7 @@ OPTION(reduceinit,int,2000,0,INT_MAX,"initial reduce interval") \
 OPTION(restart,bool,true,0,1,"enable restarts") \
 OPTION(restartint,int,10,1,INT_MAX,"restart interval") \
 OPTION(restartmargin,double,1.1,1,INT_MAX,"restart slow / fast margin") \
+OPTION(templatetries,int,64,0,INT_MAX,"max template witness tries per prune") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
 OPTION(verbose,int,1,0,5,"verbose level") \
@@ -487,6 +488,20 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
   const char * eventlog_path;
   bool close_eventlog;
   long attempts;		// Event id counter for 'attempt' events.
+
+  // Involution templates (structure-derived witness proposals).
+
+  const char * template_path;
+  struct {
+    int * pairs;		// Flattened var pairs (u,u) means flip u.
+    long * offsets;		// Involution i = pairs[offsets[i]..offsets[i+1]).
+    long count;			// Number of involutions.
+    long * touch;		// Flattened var -> involution index lists.
+    long * touch_offsets;	// Var v list = touch[to[v]..to[v+1]).
+    int max_var;		// Largest variable mentioned in templates.
+    long tried, accepted;	// Statistics.
+    bool via_template;		// Last accept came from a template.
+  } templates;
 
   /*----------------------------------------------------------------------*/
 

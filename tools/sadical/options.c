@@ -97,6 +97,8 @@ void sadical_parse_options (SaDiCaL * sadical, int argc, char ** argv) {
 #endif
     else if (!strncmp (argv[i], "--eventlog=", 11))
       sadical->eventlog_path = argv[i] + 11;
+    else if (!strncmp (argv[i], "--template=", 11))
+      sadical->template_path = argv[i] + 11;
     else if (argv[i][0] == '-' && argv[i][1] == '-') {
       if (argv[i][2] == 'n' && argv[i][3] == 'o' && argv[i][4] == '-') {
 	setopt (sadical, argv[i], argv[i] + 5, 0);
@@ -152,6 +154,73 @@ void sadical_setup_eventlog (SaDiCaL * sadical) {
     DIE ("can not write event log to '%s'", sadical->eventlog_path);
   sadical->close_eventlog = true;
   MSG (1, "event log path '%s'", sadical->eventlog_path);
+}
+
+// Involution template file: whitespace-separated integers; each involution
+// is a sequence of variable pairs terminated by 0.  A pair (u,u) means
+// 'flip u'; (u,v) with u != v means 'swap the values of u and v'.
+
+void sadical_setup_templates (SaDiCaL * sadical) {
+  if (!sadical->template_path) return;
+  FILE * file = fopen (sadical->template_path, "r");
+  if (!file) DIE ("can not read template file '%s'", sadical->template_path);
+
+  long size = 0, capacity = 0;
+  int * ints = 0;
+  int x;
+  while (fscanf (file, "%d", &x) == 1) {
+    if (size == capacity) {
+      capacity = capacity ? 2 * capacity : 1024;
+      ints = realloc (ints, capacity * sizeof (int));
+    }
+    ints[size++] = x;
+  }
+  fclose (file);
+
+  long count = 0;
+  int max_var = 0;
+  for (long i = 0; i < size; i++) {
+    if (ints[i] == 0) count++;
+    else if (abs (ints[i]) > max_var) max_var = abs (ints[i]);
+  }
+
+  sadical->templates.pairs = malloc (size * sizeof (int));
+  sadical->templates.offsets = malloc ((count + 1) * sizeof (long));
+  sadical->templates.count = count;
+  sadical->templates.max_var = max_var;
+
+  long n = 0, inv = 0;
+  sadical->templates.offsets[0] = 0;
+  for (long i = 0; i < size; i++) {
+    if (ints[i] == 0) sadical->templates.offsets[++inv] = n;
+    else sadical->templates.pairs[n++] = ints[i];
+  }
+  free (ints);
+
+  // Build var -> involutions touch index.
+  long * counts = calloc (max_var + 2, sizeof (long));
+  for (long i = 0; i < count; i++)
+    for (long p = sadical->templates.offsets[i];
+         p < sadical->templates.offsets[i + 1]; p++)
+      counts[abs (sadical->templates.pairs[p])]++;
+  sadical->templates.touch_offsets = malloc ((max_var + 2) * sizeof (long));
+  long acc = 0;
+  for (int v = 0; v <= max_var + 1; v++) {
+    sadical->templates.touch_offsets[v] = acc;
+    if (v <= max_var) acc += counts[v];
+  }
+  sadical->templates.touch = malloc (acc * sizeof (long));
+  long * fill = calloc (max_var + 1, sizeof (long));
+  for (long i = 0; i < count; i++)
+    for (long p = sadical->templates.offsets[i];
+         p < sadical->templates.offsets[i + 1]; p++) {
+      int v = abs (sadical->templates.pairs[p]);
+      sadical->templates.touch[sadical->templates.touch_offsets[v] + fill[v]++] = i;
+    }
+  free (counts);
+  free (fill);
+  MSG (1, "loaded %ld involution templates over %d variables from '%s'",
+    count, max_var, sadical->template_path);
 }
 
 /*------------------------------------------------------------------------*/

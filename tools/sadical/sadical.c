@@ -1498,7 +1498,8 @@ static void emit_accept_event (Solver * solver, long id,
   }
   fprintf (f,
     "],\"inner\":{\"time_ms\":%.3f,\"conflicts\":%ld,\"decisions\":%ld},"
-    "\"trail\":[", ms, conflicts, decisions);
+    "\"via\":\"%s\",\"trail\":[", ms, conflicts, decisions,
+    sadical->templates.via_template ? "template" : "reduct");
   for (int * p = solver->trail.begin; p < solver->trail.end; p++)
     fprintf (f, "%s%d", p == solver->trail.begin ? "" : ",", *p);
   fputs ("]}\n", f);
@@ -1516,6 +1517,108 @@ static bool reduct_satisfiable (Solver * solver) {
   SaDiCaL * sadical = solver->sadical;
   assert (solver == sadical->outer);
   return solve (sadical->inner) == 10;
+}
+
+// Template-first witness proposal: try structure-derived involutions
+// (omega = alpha composed with a swap/flip of variable values) directly
+// against the positive reduct before falling back to the inner SAT solve.
+// Soundness is untouched: a template witness is accepted only if it
+// satisfies every clause of the positive reduct (the same criterion the
+// inner solver certifies), and all emitted proofs still go through
+// dpr-trim downstream.
+
+static int template_partner (SaDiCaL * sadical, long inv, int var) {
+  for (long p = sadical->templates.offsets[inv];
+       p < sadical->templates.offsets[inv + 1]; p += 2) {
+    int u = sadical->templates.pairs[p];
+    int v = sadical->templates.pairs[p + 1];
+    if (u == var) return v;
+    if (v == var) return u;
+  }
+  return 0;
+}
+
+static bool try_one_involution (Solver * solver, long inv, Ints * written) {
+  SaDiCaL * sadical = solver->sadical;
+  Solver * inner = sadical->inner;
+  assert (EMPTY (*written));
+  bool ok = true;
+  for (int * p = solver->trail.begin; ok && p < solver->trail.end; p++) {
+    int outer_lit = *p;
+    Var * v = var (solver, outer_lit);
+    if (v->stamp < solver->stamp) continue;	// Not in reduct.
+    int u = abs (outer_lit);
+    int partner = u <= sadical->templates.max_var ?
+      template_partner (sadical, inv, u) : 0;
+    int desired;				// Value of variable u in omega.
+    if (!partner) desired = val (solver, u);
+    else if (partner == u) desired = -val (solver, u);
+    else {
+      desired = val (solver, partner);
+      // Unassigned partner: apply the involution partially and keep alpha
+      // on u — the reduct check below still gates the resulting omega.
+      if (!desired) desired = val (solver, u);
+    }
+    int iu = map (solver, u);			// Stamped: no fresh mapping.
+    int tmp = inner->vals[iu];
+    if (tmp) {					// Set by reduct units:
+      if (tmp != desired) ok = false;		// must agree, never override.
+      continue;
+    }
+    inner->vals[iu] = desired;
+    inner->vals[-iu] = -desired;
+    PUSH (*written, iu);
+  }
+  if (ok) {
+    for (Clause ** p = inner->clauses.begin;
+         ok && p != inner->clauses.end; p++) {
+      Clause * c = *p;
+      bool sat = false;
+      for (int i = 0; !sat && i < c->size; i++)
+        if (val (inner, c->literals[i]) > 0) sat = true;
+      if (!sat) ok = false;
+    }
+  }
+  if (!ok) {
+    for (int * p = written->begin; p != written->end; p++) {
+      inner->vals[*p] = 0;
+      inner->vals[-*p] = 0;
+    }
+    CLEAR (*written);
+  }
+  return ok;
+}
+
+static bool try_template_witness (Solver * solver) {
+  SaDiCaL * sadical = solver->sadical;
+  sadical->templates.via_template = false;
+  if (!sadical->templates.count) return false;
+  // The reduct is simplified against inner unit propagation while being
+  // added; if that already derived the empty clause no witness exists.
+  if (sadical->inner->inconsistent) return false;
+  long budget = sadical->opts.templatetries;
+  Ints written;
+  INIT (written);
+  bool res = false;
+  // Deepest decision first: the atlas locality result says witnesses sit
+  // within small radius of the stuck region.
+  for (int level = solver->level; !res && level > 0 && budget > 0; level--) {
+    int dvar = abs (solver->frames.begin[level].decision);
+    if (dvar > sadical->templates.max_var) continue;
+    for (long t = sadical->templates.touch_offsets[dvar];
+         !res && t < sadical->templates.touch_offsets[dvar + 1] && budget > 0;
+         t++) {
+      budget--;
+      sadical->templates.tried++;
+      if (try_one_involution (solver, sadical->templates.touch[t], &written)) {
+        sadical->templates.accepted++;
+        sadical->templates.via_template = true;
+        res = true;
+      }
+    }
+  }
+  RELEASE (written);
+  return res;
 }
 
 static bool prune (Solver * solver) {
@@ -1553,7 +1656,9 @@ static bool prune (Solver * solver) {
     ev_conflicts = sadical->inner->local.conflicts;
     ev_decisions = sadical->inner->local.decisions;
   }
-  if (reduct_satisfiable (solver)) {
+  bool witness_found = try_template_witness (solver);
+  if (!witness_found) witness_found = reduct_satisfiable (solver);
+  if (witness_found) {
     LOG ("pruning successful");
     MSG (3, "pruning successful");
     sadical->pruned++;
@@ -1690,11 +1795,17 @@ int sadical_solve (SaDiCaL * sadical) {
   if (sadical->eventlog) {
     fprintf (sadical->eventlog,
       "{\"ev\":\"run_end\",\"result\":%d,\"time_s\":%.3f,\"pruned\":%ld,"
-      "\"reduct_unsat\":%ld,\"conflicts\":%ld}\n",
+      "\"reduct_unsat\":%ld,\"conflicts\":%ld,"
+      "\"template_tried\":%ld,\"template_accepted\":%ld}\n",
       res, sadical_process_time () - ev_start, sadical->pruned,
-      sadical->reduct.unsat, sadical->outer->local.conflicts);
+      sadical->reduct.unsat, sadical->outer->local.conflicts,
+      sadical->templates.tried, sadical->templates.accepted);
     fflush (sadical->eventlog);
   }
+  if (sadical->templates.count)
+    MSG (1, "templates: %ld accepted of %ld tried (%ld involutions loaded)",
+      sadical->templates.accepted, sadical->templates.tried,
+      sadical->templates.count);
   if (res == 10) sadical_report (sadical, '1');
   else if (res == 20) sadical_report (sadical, '0');
   else sadical_report (sadical, '?');
@@ -1989,5 +2100,9 @@ void sadical_delete (SaDiCaL * sadical) {
     fclose (sadical->proof);
   if (sadical->eventlog && sadical->close_eventlog)
     fclose (sadical->eventlog);
+  free (sadical->templates.pairs);
+  free (sadical->templates.offsets);
+  free (sadical->templates.touch);
+  free (sadical->templates.touch_offsets);
   free (sadical);
 }

@@ -7,6 +7,7 @@ int main (int argc, char ** argv) {
   sadical_setup_input (sadical);
   sadical_setup_proof (sadical);
   sadical_setup_eventlog (sadical);
+  sadical_setup_templates (sadical);
   sadical_print_non_default_options (sadical);
   sadical_init_signals (sadical);
   sadical_parse_dimacs (sadical);

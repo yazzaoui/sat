@@ -5,3 +5,4 @@ benchmarks/cnf/
 benchmarks/proofs/
 *.o
 *.a
+benchmarks/competition/
