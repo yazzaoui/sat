@@ -182,16 +182,19 @@ def emit_involutions(clauses, overlay, path):
     # Grid: faces = 4-cycles in the block intersection graph.
     shared_var = {}
     nbr = defaultdict(set)
-    for i in range(len(blocks)):
-        for j in range(i + 1, len(blocks)):
-            s = set(blocks[i]) & set(blocks[j])
-            if len(s) == 1:
-                shared_var[(i, j)] = shared_var[(j, i)] = s.pop()
-                nbr[i].add(j)
-                nbr[j].add(i)
+    if "grid" in overlay["labels"]:
+        for i in range(len(blocks)):
+            for j in range(i + 1, len(blocks)):
+                s = set(blocks[i]) & set(blocks[j])
+                if len(s) == 1:
+                    shared_var[(i, j)] = shared_var[(j, i)] = s.pop()
+                    nbr[i].add(j)
+                    nbr[j].add(i)
     # Re-tiling moves = alternating rotations along simple cycles of blocks
     # (cells). Length 4 = 2x2 face, 6 = 2x3, 8 = 2x4 / 3x3 / L; the atlas
     # flip-size distribution (median ~10 at n=14) says the tail matters.
+    # Only meaningful (and tractable) when the block graph is lattice-like;
+    # on dense non-grid intersection graphs the enumeration explodes.
     seen = set()
 
     def cycles_from(start, max_len):

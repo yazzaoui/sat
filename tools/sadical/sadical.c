@@ -1499,6 +1499,7 @@ static void emit_accept_event (Solver * solver, long id,
   fprintf (f,
     "],\"inner\":{\"time_ms\":%.3f,\"conflicts\":%ld,\"decisions\":%ld},"
     "\"via\":\"%s\",\"trail\":[", ms, conflicts, decisions,
+    sadical->templates.via_warm ? "warm" :
     sadical->templates.via_template ? "template" : "reduct");
   for (int * p = solver->trail.begin; p < solver->trail.end; p++)
     fprintf (f, "%s%d", p == solver->trail.begin ? "" : ",", *p);
@@ -1589,9 +1590,47 @@ static bool try_one_involution (Solver * solver, long inv, Ints * written) {
   return ok;
 }
 
+// Warm start (template hit with 'tplwarm'): instead of installing the
+// template omega as the witness, undo the trial writes and inject only the
+// FLIP literals as inner units, then let the inner solver author the full
+// witness.  SAT is guaranteed (the template omega extends the units and
+// satisfies the reduct), so a template hit can never veto a witness stock
+// SaDiCaL would find; template misses fall through to the plain solve.
+// The trajectory study showed inner-authored witnesses carry steering
+// value that geometric moves lack — warm starts inherit it.
+
+static void warm_start_from_writes (Solver * solver, Ints * written) {
+  SaDiCaL * sadical = solver->sadical;
+  Solver * inner = sadical->inner;
+  Ints units;
+  INIT (units);
+  for (int * p = solver->trail.begin; p < solver->trail.end; p++) {
+    int outer_lit = *p;
+    Var * v = var (solver, outer_lit);
+    if (v->stamp < solver->stamp) continue;
+    int u = abs (outer_lit);
+    int iu = map (solver, u);
+    int wv = inner->vals[iu];
+    if (wv && wv != val (solver, u))		// A flipped variable.
+      PUSH (units, wv > 0 ? iu : -iu);
+  }
+  for (int * p = written->begin; p != written->end; p++) {
+    inner->vals[*p] = 0;
+    inner->vals[-*p] = 0;
+  }
+  CLEAR (*written);
+  for (int * p = units.begin; p != units.end; p++) {
+    add_literal (inner, *p);
+    add_literal (inner, 0);
+  }
+  RELEASE (units);
+  sadical->templates.warm++;
+}
+
 static bool try_template_witness (Solver * solver) {
   SaDiCaL * sadical = solver->sadical;
   sadical->templates.via_template = false;
+  sadical->templates.via_warm = false;
   if (!sadical->templates.count) return false;
   // The reduct is simplified against inner unit propagation while being
   // added; if that already derived the empty clause no witness exists.
@@ -1599,21 +1638,31 @@ static bool try_template_witness (Solver * solver) {
   long budget = sadical->opts.templatetries;
   Ints written;
   INIT (written);
-  bool res = false;
+  bool res = false, stop = false;
   // Deepest decision first: the atlas locality result says witnesses sit
   // within small radius of the stuck region.
-  for (int level = solver->level; !res && level > 0 && budget > 0; level--) {
+  for (int level = solver->level;
+       !stop && level > 0 && budget > 0; level--) {
     int dvar = abs (solver->frames.begin[level].decision);
     if (dvar > sadical->templates.max_var) continue;
     for (long t = sadical->templates.touch_offsets[dvar];
-         !res && t < sadical->templates.touch_offsets[dvar + 1] && budget > 0;
+         !stop && t < sadical->templates.touch_offsets[dvar + 1] &&
+         budget > 0;
          t++) {
       budget--;
       sadical->templates.tried++;
       if (try_one_involution (solver, sadical->templates.touch[t], &written)) {
         sadical->templates.accepted++;
-        sadical->templates.via_template = true;
-        res = true;
+        stop = true;
+        if (sadical->opts.tplwarm) {
+          // Not a witness yet: undo trial writes, inject flip units and
+          // let the caller run the (now warm) inner solve.
+          warm_start_from_writes (solver, &written);
+          sadical->templates.via_warm = true;
+        } else {
+          sadical->templates.via_template = true;
+          res = true;
+        }
       }
     }
   }
@@ -1658,7 +1707,8 @@ static bool prune (Solver * solver) {
   }
   bool witness_found = try_template_witness (solver);
   if (!witness_found &&
-      !(sadical->templates.count && sadical->opts.tplfilter))
+      (sadical->templates.via_warm ||
+       !(sadical->templates.count && sadical->opts.tplfilter)))
     witness_found = reduct_satisfiable (solver);
   if (witness_found) {
     LOG ("pruning successful");
@@ -1802,10 +1852,12 @@ int sadical_solve (SaDiCaL * sadical) {
     fprintf (sadical->eventlog,
       "{\"ev\":\"run_end\",\"result\":%d,\"time_s\":%.3f,\"pruned\":%ld,"
       "\"reduct_unsat\":%ld,\"conflicts\":%ld,"
-      "\"template_tried\":%ld,\"template_accepted\":%ld}\n",
+      "\"template_tried\":%ld,\"template_accepted\":%ld,"
+      "\"template_warm\":%ld}\n",
       res, sadical_process_time () - ev_start, sadical->pruned,
       sadical->reduct.unsat, sadical->outer->local.conflicts,
-      sadical->templates.tried, sadical->templates.accepted);
+      sadical->templates.tried, sadical->templates.accepted,
+      sadical->templates.warm);
     fflush (sadical->eventlog);
   }
   if (sadical->templates.count)

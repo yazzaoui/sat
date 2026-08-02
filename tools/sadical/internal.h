@@ -39,6 +39,7 @@ OPTION(tplbump,bool,true,0,1,"flip-bump variables on template accepts") \
 OPTION(tplbalance,bool,true,0,1,"balance-restart accounting on template accepts") \
 OPTION(tplmode,bool,true,0,1,"relevant-mode switch on template accepts") \
 OPTION(tplfilter,bool,false,0,1,"template miss skips the reduct solve") \
+OPTION(tplwarm,bool,false,0,1,"template hit warm-starts the reduct solve") \
 OPTION(reverse,bool,false,0,1,"reverse initial variable order") \
 OPTION(reuse,bool,false,0,1,"reuse trails during restart") \
 OPTION(verbose,int,1,0,5,"verbose level") \
@@ -504,7 +505,9 @@ struct SaDiCaL {	// Extends until "END of 'struct SaDiCaL'".
     long * touch_offsets;	// Var v list = touch[to[v]..to[v+1]).
     int max_var;		// Largest variable mentioned in templates.
     long tried, accepted;	// Statistics.
+    long warm;			// Warm-started reduct solves.
     bool via_template;		// Last accept came from a template.
+    bool via_warm;		// Last accept was warm-started.
   } templates;
 
   /*----------------------------------------------------------------------*/
