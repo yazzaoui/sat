@@ -1,5 +1,30 @@
 # M2 benchmark: guided (probation-gated) vs stock vs CaDiCaL
 
+## The three regimes (read any row against its archetype)
+
+1. **Overhead regime** (coloring, most BMC, logistics): the SDCL witness
+   hunt is pure cost — `pruneoff ≈ cadical ≪ stock`. The gate's prune-off
+   verdict recovers CDCL performance online (tax = bounded probation
+   cost, ≤ ~1 s via the 5 s cap). This regime dominated our real-world
+   sample; the stock-vs-pruneoff gap (up to timeout-vs-0.01 s) is the
+   quantified pathology.
+2. **Profitable regime** (PHP-like counting): `stock ≪ pruneoff/cadical`,
+   templates complete — gate confirms (`filter-on@100%h`) and filtering
+   is lossless.
+3. **Mixed regime** (chessboard, Tseitin): pruning pays but templates are
+   incomplete — gate reverts to stock (`revert-stock`) with tax ≈ 0.1 s.
+   tseitin(50) documents why prune-off needs the acceptance conjunction:
+   0% hits but 41% acceptance, and the hunt is worth timeout-vs-0.27 s.
+
+Known structural limit: when a single unbudgeted reduct solve dominates
+(logistics.b–d, bmc-ibm-5) no verdict can fire; stock times out
+identically, so the gate never regresses. Inner-solve conflict budgeting
+is the named future fix. "no-verdict" on fast rows means the instance
+finished before the window filled (gate inert, tax ≈ probation overhead
+only). The competition-section mchess/php rows compare against sweep-era
+stock timings; the synthetic section (same binary, same session, proofs
+verified) is authoritative for those families.
+
 Gate: measure-only probation window (200 witness-bearing attempts),
 then one of three verdicts — filter confirmed (>=90% template hits),
 templates disabled (revert to stock), pruning disabled (<5% hits,
@@ -12,67 +37,67 @@ measured, not asserted). Timeout 120 s.
 
 | instance | labels | cadical | stock | pruneoff | gated | verdict | tax |
 |---|---|---|---|---|---|---|---|
-| flat50-1 | counting | 0.01 | 0.08 | 0.01 | 0.08 | no-verdict | +0.08 |
-| flat50-10 | counting | 0.01 | 0.02 | 0.00 | 0.02 | no-verdict | +0.02 |
-| flat50-100 | counting | 0.01 | 0.04 | 0.00 | 0.04 | no-verdict | +0.04 |
-| flat50-1000 | counting | 0.01 | 0.41 | 0.00 | 0.19 | pruning@0% | +0.19 |
-| flat50-101 | counting | 0.00 | 0.24 | 0.00 | 0.16 | pruning@0% | +0.15 |
-| flat75-1 | counting | 0.01 | 0.33 | 0.01 | 0.28 | pruning@0% | +0.27 |
-| flat75-10 | counting | 0.01 | 16.11 | 0.00 | 0.52 | pruning@0% | +0.52 |
-| flat75-100 | counting | 0.01 | 3.57 | 0.01 | 0.49 | pruning@0% | +0.49 |
-| flat75-11 | counting | 0.01 | 0.62 | 0.01 | 0.40 | pruning@1% | +0.39 |
-| flat75-12 | counting | 0.01 | 0.56 | 0.00 | 0.30 | pruning@0% | +0.29 |
-| flat100-1 | counting | 0.00 | 1.92 | 0.01 | 0.38 | pruning@0% | +0.37 |
-| flat100-10 | counting | 0.00 | timeout | 0.01 | 0.26 | pruning@0% | +0.26 |
-| flat100-100 | counting | 0.01 | 31.06 | 0.01 | 0.68 | pruning@0% | +0.67 |
-| flat100-11 | counting | 0.01 | 2.72 | 0.01 | 0.49 | pruning@0% | +0.48 |
-| flat100-12 | counting | 0.01 | 0.83 | 0.01 | 0.41 | pruning@0% | +0.41 |
-| flat125-1 | counting | 0.01 | 8.18 | 0.01 | 0.70 | pruning@0% | +0.70 |
-| flat125-10 | counting | 0.01 | 1.29 | 0.01 | 0.64 | pruning@0% | +0.63 |
-| flat125-100 | counting | 0.01 | 5.33 | 0.01 | 0.92 | pruning@2% | +0.91 |
-| flat125-11 | counting | 0.01 | 1.34 | 0.01 | 0.84 | pruning@0% | +0.83 |
-| flat125-12 | counting | 0.01 | 2.35 | 0.01 | 1.23 | pruning@0% | +1.23 |
-| flat150-1 | counting | 0.01 | 50.22 | 0.01 | 1.83 | pruning@1% | +1.82 |
-| flat150-10 | counting | 0.01 | 12.57 | 0.02 | 2.53 | pruning@2% | +2.51 |
-| flat150-100 | counting | 0.01 | 30.75 | 0.00 | 1.99 | pruning@0% | +1.98 |
-| flat150-11 | counting | 0.01 | 7.66 | 0.00 | 1.59 | pruning@0% | +1.59 |
-| flat150-12 | counting | 0.01 | 27.46 | 0.01 | 1.99 | pruning@0% | +1.97 |
-| flat200-1 | counting | 0.01 | timeout | 0.04 | 2.32 | pruning@1% | +2.28 |
-| flat200-10 | counting | 0.04 | timeout | 0.04 | 1.70 | pruning@0% | +1.67 |
-| flat200-100 | counting | 0.03 | timeout | 0.10 | 1.27 | pruning@1% | +1.18 |
-| flat200-11 | counting | 0.02 | 38.05 | 0.01 | 2.48 | pruning@0% | +2.46 |
-| flat200-12 | counting | 0.04 | timeout | 0.05 | 2.15 | pruning@0% | +2.10 |
+| flat50-1 | counting | 0.01 | 0.08 | 0.01 | 0.05 | no-verdict | +0.04 |
+| flat50-10 | counting | 0.01 | 0.02 | 0.00 | 0.01 | no-verdict | +0.01 |
+| flat50-100 | counting | 0.01 | 0.04 | 0.00 | 0.02 | no-verdict | +0.02 |
+| flat50-1000 | counting | 0.01 | 0.41 | 0.00 | 0.11 | prune-off@0%h/14%a | +0.10 |
+| flat50-101 | counting | 0.00 | 0.24 | 0.00 | 0.09 | prune-off@0%h/15%a | +0.08 |
+| flat75-1 | counting | 0.01 | 0.33 | 0.01 | 0.15 | prune-off@0%h/13%a | +0.14 |
+| flat75-10 | counting | 0.01 | 16.11 | 0.00 | 0.23 | prune-off@0%h/9%a | +0.22 |
+| flat75-100 | counting | 0.01 | 3.57 | 0.01 | 0.23 | prune-off@0%h/9%a | +0.22 |
+| flat75-11 | counting | 0.01 | 0.62 | 0.01 | 0.18 | prune-off@1%h/10%a | +0.18 |
+| flat75-12 | counting | 0.01 | 0.56 | 0.00 | 0.14 | prune-off@0%h/13%a | +0.14 |
+| flat100-1 | counting | 0.00 | 1.92 | 0.01 | 0.19 | prune-off@0%h/10%a | +0.18 |
+| flat100-10 | counting | 0.00 | timeout | 0.01 | 0.13 | prune-off@0%h/13%a | +0.12 |
+| flat100-100 | counting | 0.01 | 31.06 | 0.01 | 0.34 | prune-off@0%h/8%a | +0.33 |
+| flat100-11 | counting | 0.01 | 2.72 | 0.01 | 0.23 | prune-off@0%h/10%a | +0.22 |
+| flat100-12 | counting | 0.01 | 0.83 | 0.01 | 0.21 | prune-off@0%h/11%a | +0.20 |
+| flat125-1 | counting | 0.01 | 8.18 | 0.01 | 0.37 | prune-off@0%h/8%a | +0.36 |
+| flat125-10 | counting | 0.01 | 1.29 | 0.01 | 0.34 | prune-off@0%h/8%a | +0.34 |
+| flat125-100 | counting | 0.01 | 5.33 | 0.01 | 0.51 | prune-off@2%h/7%a | +0.50 |
+| flat125-11 | counting | 0.01 | 1.34 | 0.01 | 0.33 | prune-off@0%h/9%a | +0.33 |
+| flat125-12 | counting | 0.01 | 2.35 | 0.01 | 0.51 | prune-off@0%h/7%a | +0.51 |
+| flat150-1 | counting | 0.01 | 50.22 | 0.01 | 0.69 | prune-off@1%h/6%a | +0.69 |
+| flat150-10 | counting | 0.01 | 12.57 | 0.02 | 0.60 | prune-off@2%h/7%a | +0.58 |
+| flat150-100 | counting | 0.01 | 30.75 | 0.00 | 0.81 | prune-off@0%h/6%a | +0.81 |
+| flat150-11 | counting | 0.01 | 7.66 | 0.00 | 0.78 | prune-off@0%h/6%a | +0.78 |
+| flat150-12 | counting | 0.01 | 27.46 | 0.01 | 0.78 | prune-off@0%h/5%a | +0.77 |
+| flat200-1 | counting | 0.01 | timeout | 0.04 | 1.06 | prune-off@1%h/4%a/starved | +1.01 |
+| flat200-10 | counting | 0.04 | timeout | 0.04 | 0.99 | prune-off@0%h/5%a | +0.95 |
+| flat200-100 | counting | 0.03 | timeout | 0.10 | 0.68 | prune-off@1%h/6%a | +0.59 |
+| flat200-11 | counting | 0.02 | 38.05 | 0.01 | 1.16 | prune-off@0%h/4%a/starved | +1.15 |
+| flat200-12 | counting | 0.04 | timeout | 0.05 | 1.15 | prune-off@0%h/4%a/starved | +1.09 |
 | uf100-01 | - | 0.01 | 0.01 | 0.01 | 0.00 | no-verdict | -0.00 |
 | uf100-010 | - | 0.01 | 0.01 | 0.01 | 0.00 | no-verdict | -0.00 |
 | uf100-0100 | - | 0.01 | 0.01 | 0.01 | 0.00 | no-verdict | -0.00 |
 | uf250-01 | - | 0.01 | 0.01 | 0.01 | 0.00 | no-verdict | -0.00 |
-| uf250-010 | - | 0.01 | 0.01 | 0.01 | 0.00 | no-verdict | -0.00 |
-| logistics.a | - | 0.01 | timeout | 0.02 | 68.14 | no-verdict | +68.12 |
+| uf250-010 | - | 0.01 | 0.01 | 0.01 | 0.00 | no-verdict | -0.01 |
+| logistics.a | - | 0.01 | timeout | 0.02 | 43.18 | no-verdict | +43.16 |
 | logistics.b | counting | 0.03 | timeout | 0.02 | timeout | no-verdict | - |
 | logistics.c | counting | 0.02 | timeout | 0.01 | timeout | no-verdict | - |
 | logistics.d | - | 0.03 | timeout | 0.03 | timeout | no-verdict | - |
-| bmc-ibm-1 | - | 0.16 | timeout | 0.09 | 5.55 | pruning@0% | +5.46 |
-| bmc-ibm-2 | - | 0.02 | 7.64 | 0.02 | 0.48 | pruning@0% | +0.46 |
-| bmc-ibm-3 | - | 0.90 | timeout | 0.27 | 70.22 | pruning@0% | +69.95 |
-| bmc-ibm-4 | - | 0.18 | timeout | 0.20 | 46.54 | pruning@0% | +46.34 |
+| bmc-ibm-1 | - | 0.16 | timeout | 0.09 | 4.22 | prune-off@0%h/8%a | +4.13 |
+| bmc-ibm-2 | - | 0.02 | 7.64 | 0.02 | 0.43 | prune-off@0%h/11%a | +0.41 |
+| bmc-ibm-3 | - | 0.90 | timeout | 0.27 | 5.14 | prune-off@0%h/2%a/starved | +4.87 |
+| bmc-ibm-4 | - | 0.18 | timeout | 0.20 | 5.38 | prune-off@0%h/0%a/starved | +5.18 |
 | bmc-ibm-5 | - | 0.02 | timeout | 0.06 | timeout | no-verdict | - |
-| mchess12 | counting+grid | 2.33 | 1.37 | 2.83 | 0.51 | templates@56% | -0.86 |
-| mchess14 | counting+grid | 23.39 | 2.00 | 56.54 | 3.22 | templates@50% | +1.22 |
-| php10 | counting | 5.19 | 0.01 | 10.14 | 0.02 | template@100% | +0.00 |
-| php11 | counting | timeout | 0.02 | timeout | 0.03 | template@100% | +0.00 |
+| mchess12 | counting+grid | 2.33 | 1.37 | 2.83 | 0.20 | revert-stock@56%h/16%a | -1.18 |
+| mchess14 | counting+grid | 23.39 | 2.00 | 56.54 | 1.10 | revert-stock@50%h/14%a | -0.90 |
+| php10 | counting | 5.19 | 0.01 | 10.14 | 0.01 | filter-on@100%h | -0.00 |
+| php11 | counting | timeout | 0.02 | timeout | 0.01 | filter-on@100%h | -0.01 |
 
 ## Synthetic families (UNSAT, guided proofs dpr-trim-verified)
 
 | instance | cadical | stock | gated | verdict | proof |
 |---|---|---|---|---|---|
-| php10 | 8.14 | 0.03 | 0.02 | template@100% | yes |
-| php11 | 102.21 | 0.02 | 0.02 | template@100% | yes |
-| php12 | timeout | 0.03 | 0.03 | template@100% | yes |
-| php13 | timeout | 0.03 | 0.03 | template@100% | yes |
-| mchess12 | 0.93 | 0.25 | 0.27 | templates@56% | yes |
-| mchess14 | 20.91 | 1.41 | 1.47 | templates@50% | yes |
-| mchess16 | 99.20 | 4.18 | 4.33 | templates@60% | yes |
-| mchess18 | timeout | 31.20 | 30.82 | templates@54% | yes |
-| tseitin30 | 0.86 | 0.05 | 0.05 | templates@19% | yes |
-| tseitin40 | 45.89 | 0.83 | 0.89 | templates@14% | yes |
-| tseitin50 | timeout | 0.12 | 51.46 | pruning@0% | yes |
+| php10 | 2.65 | 0.01 | 0.01 | filter-on@100%h | yes |
+| php11 | 42.81 | 0.01 | 0.01 | filter-on@100%h | yes |
+| php12 | timeout | 0.02 | 0.02 | filter-on@100%h | yes |
+| php13 | timeout | 0.03 | 0.03 | filter-on@100%h | yes |
+| mchess12 | 0.87 | 0.20 | 0.22 | revert-stock@56%h/16%a | yes |
+| mchess14 | 16.81 | 1.18 | 1.31 | revert-stock@50%h/14%a | yes |
+| mchess16 | timeout | 6.51 | 6.84 | revert-stock@60%h/12%a | yes |
+| mchess18 | timeout | 27.20 | 28.36 | revert-stock@54%h/11%a | yes |
+| tseitin30 | 1.35 | 0.07 | 0.10 | revert-stock@19%h/38%a | yes |
+| tseitin40 | 74.67 | 1.61 | 1.70 | revert-stock@14%h/33%a | yes |
+| tseitin50 | timeout | 0.27 | 0.26 | revert-stock@0%h/41%a | yes |

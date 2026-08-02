@@ -43,8 +43,17 @@ def timed(cmd, timeout=TIMEOUT):
 def verdict_of(out):
     m = re.search(r"c (template filter confirmed|templates disabled|"
                   r"pruning disabled|template filter disabled)"
-                  r" (?:by|after) probation \((\d+)% hits\)", out)
-    return f"{m.group(1).split()[0]}@{m.group(2)}%" if m else "no-verdict"
+                  r" (?:by|after) probation "
+                  r"\((\d+)% hits(?:, (\d+)% acceptance)?(, starved)?\)", out)
+    if not m:
+        return "no-verdict"
+    kind = {"template filter confirmed": "filter-on",
+            "templates disabled": "revert-stock",
+            "pruning disabled": "prune-off",
+            "template filter disabled": "filter-off"}[m.group(1)]
+    acc = f"/{m.group(3)}%a" if m.group(3) else ""
+    starved = "/starved" if m.group(4) else ""
+    return f"{kind}@{m.group(2)}%h{acc}{starved}"
 
 
 def gated_run(cnf, inv, proof=None):

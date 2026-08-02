@@ -1,16 +1,60 @@
-flat50-1: gated=0.05 no-verdict tax=+0.05
-flat50-10: gated=0.02 no-verdict tax=+0.01
-flat50-100: gated=0.03 no-verdict tax=+0.02
-flat50-1000: gated=0.14 no-verdict tax=+0.14
-flat50-101: gated=0.10 no-verdict tax=+0.09
-flat75-1: gated=0.18 no-verdict tax=+0.18
-flat75-10: gated=0.29 no-verdict tax=+0.28
-flat75-100: gated=0.28 no-verdict tax=+0.28
-flat75-11: gated=0.21 no-verdict tax=+0.21
-flat75-12: gated=0.17 no-verdict tax=+0.17
-flat100-1: gated=0.24 no-verdict tax=+0.23
-flat100-10: gated=0.14 no-verdict tax=+0.13
-flat100-100: gated=0.36 no-verdict tax=+0.36
-flat100-11: gated=0.25 no-verdict tax=+0.24
-flat100-12: gated=0.22 no-verdict tax=+0.21
-flat125-1: gated=0.37 no-verdict tax=+0.36
+flat50-1: gated=0.05 no-verdict tax=+0.04
+flat50-10: gated=0.01 no-verdict tax=+0.01
+flat50-100: gated=0.02 no-verdict tax=+0.02
+flat50-1000: gated=0.11 prune-off@0%h/14%a tax=+0.10
+flat50-101: gated=0.09 prune-off@0%h/15%a tax=+0.08
+flat75-1: gated=0.15 prune-off@0%h/13%a tax=+0.14
+flat75-10: gated=0.23 prune-off@0%h/9%a tax=+0.22
+flat75-100: gated=0.23 prune-off@0%h/9%a tax=+0.22
+flat75-11: gated=0.18 prune-off@1%h/10%a tax=+0.18
+flat75-12: gated=0.14 prune-off@0%h/13%a tax=+0.14
+flat100-1: gated=0.19 prune-off@0%h/10%a tax=+0.18
+flat100-10: gated=0.13 prune-off@0%h/13%a tax=+0.12
+flat100-100: gated=0.34 prune-off@0%h/8%a tax=+0.33
+flat100-11: gated=0.23 prune-off@0%h/10%a tax=+0.22
+flat100-12: gated=0.21 prune-off@0%h/11%a tax=+0.20
+flat125-1: gated=0.37 prune-off@0%h/8%a tax=+0.36
+flat125-10: gated=0.34 prune-off@0%h/8%a tax=+0.34
+flat125-100: gated=0.51 prune-off@2%h/7%a tax=+0.50
+flat125-11: gated=0.33 prune-off@0%h/9%a tax=+0.33
+flat125-12: gated=0.51 prune-off@0%h/7%a tax=+0.51
+flat150-1: gated=0.69 prune-off@1%h/6%a tax=+0.69
+flat150-10: gated=0.60 prune-off@2%h/7%a tax=+0.58
+flat150-100: gated=0.81 prune-off@0%h/6%a tax=+0.81
+flat150-11: gated=0.78 prune-off@0%h/6%a tax=+0.78
+flat150-12: gated=0.78 prune-off@0%h/5%a tax=+0.77
+flat200-1: gated=1.06 prune-off@1%h/4%a/starved tax=+1.01
+flat200-10: gated=0.99 prune-off@0%h/5%a tax=+0.95
+flat200-100: gated=0.68 prune-off@1%h/6%a tax=+0.59
+flat200-11: gated=1.16 prune-off@0%h/4%a/starved tax=+1.15
+flat200-12: gated=1.15 prune-off@0%h/4%a/starved tax=+1.09
+uf100-01: gated=0.00 no-verdict tax=-0.00
+uf100-010: gated=0.00 no-verdict tax=-0.00
+uf100-0100: gated=0.00 no-verdict tax=-0.00
+uf250-01: gated=0.00 no-verdict tax=-0.00
+uf250-010: gated=0.00 no-verdict tax=-0.01
+logistics.a: gated=43.18 no-verdict tax=+43.16
+logistics.b: gated=timeout no-verdict tax=-
+logistics.c: gated=timeout no-verdict tax=-
+logistics.d: gated=timeout no-verdict tax=-
+bmc-ibm-1: gated=4.22 prune-off@0%h/8%a tax=+4.13
+bmc-ibm-2: gated=0.43 prune-off@0%h/11%a tax=+0.41
+bmc-ibm-3: gated=5.14 prune-off@0%h/2%a/starved tax=+4.87
+bmc-ibm-4: gated=5.38 prune-off@0%h/0%a/starved tax=+5.18
+bmc-ibm-5: gated=timeout no-verdict tax=-
+mchess12: gated=0.20 revert-stock@56%h/16%a tax=-1.18
+mchess14: gated=1.10 revert-stock@50%h/14%a tax=-0.90
+php10: gated=0.01 filter-on@100%h tax=-0.00
+php11: gated=0.01 filter-on@100%h tax=-0.01
+php10: cadical=2.65 stock=0.01 gated=0.01 filter-on@100%h verified=yes
+php11: cadical=42.81 stock=0.01 gated=0.01 filter-on@100%h verified=yes
+php12: cadical=timeout stock=0.02 gated=0.02 filter-on@100%h verified=yes
+php13: cadical=timeout stock=0.03 gated=0.03 filter-on@100%h verified=yes
+mchess12: cadical=0.87 stock=0.20 gated=0.22 revert-stock@56%h/16%a verified=yes
+mchess14: cadical=16.81 stock=1.18 gated=1.31 revert-stock@50%h/14%a verified=yes
+mchess16: cadical=timeout stock=6.51 gated=6.84 revert-stock@60%h/12%a verified=yes
+mchess18: cadical=timeout stock=27.20 gated=28.36 revert-stock@54%h/11%a verified=yes
+tseitin30: cadical=1.35 stock=0.07 gated=0.10 revert-stock@19%h/38%a verified=yes
+tseitin40: cadical=74.67 stock=1.61 gated=1.70 revert-stock@14%h/33%a verified=yes
+tseitin50: cadical=timeout stock=0.27 gated=0.26 revert-stock@0%h/41%a verified=yes
+wrote /Users/youmew/research/pnp/docs/m2-benchmark.md
