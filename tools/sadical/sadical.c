@@ -1370,6 +1370,10 @@ static void generate_reduct (Solver * solver) {
   if (filter) LOG ("generating filtered positive reduct");
   else LOG ("generating positive reduct");
   sadical->reduct.generated++;
+  if (sadical->opts.logfilter) {
+    CLEAR (sadical->flog.checked);
+    CLEAR (sadical->flog.filtered);
+  }
 
   LOG ("adding negation of current trail of size %ld",
     (long) SIZE (solver->trail));
@@ -1416,9 +1420,12 @@ static void generate_reduct (Solver * solver) {
 
     if (filter) {
       if (unassigned) {
+	bool log = sadical->opts.logfilter && sadical->eventlog;
+	if (log) PUSH (sadical->flog.checked, (int) c->added);
 	if (filter_clause (solver, c)) {
 	  LOGCLS (c, "filtered");
 	  sadical->reduct.clauses.filtered++;
+	  if (log) PUSH (sadical->flog.filtered, (int) c->added);
 	  continue;
 	}
       } else LOGCLS (c, "skipping filtering for all assigned");
@@ -1462,7 +1469,19 @@ static void emit_attempt_event (Solver * solver, long id,
     considered, filtered, copied, assumed);
   for (int * p = solver->trail.begin; p < solver->trail.end; p++)
     fprintf (f, "%s%d", p == solver->trail.begin ? "" : ",", *p);
-  fputs ("]}\n", f);
+  fputc (']', f);
+  if (sadical->opts.logfilter) {
+    fputs (",\"fchk\":[", f);
+    for (int * p = sadical->flog.checked.begin;
+         p != sadical->flog.checked.end; p++)
+      fprintf (f, "%s%d", p == sadical->flog.checked.begin ? "" : ",", *p);
+    fputs ("],\"fflt\":[", f);
+    for (int * p = sadical->flog.filtered.begin;
+         p != sadical->flog.filtered.end; p++)
+      fprintf (f, "%s%d", p == sadical->flog.filtered.begin ? "" : ",", *p);
+    fputc (']', f);
+  }
+  fputs ("}\n", f);
 }
 
 static void emit_accept_event (Solver * solver, long id,
@@ -2321,6 +2340,8 @@ void sadical_delete (SaDiCaL * sadical) {
   if (sadical->eventlog && sadical->close_eventlog)
     fclose (sadical->eventlog);
   GRELEASE (sadical->last_analyzed);
+  GRELEASE (sadical->flog.checked);
+  GRELEASE (sadical->flog.filtered);
   free (sadical->templates.pairs);
   free (sadical->templates.offsets);
   free (sadical->templates.touch);
