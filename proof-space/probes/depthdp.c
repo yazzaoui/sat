@@ -40,12 +40,46 @@ static int add_clause (uint64_t p, uint64_t n, int depth) {
   return 1;
 }
 
+// checkpoint format: header {W, nd, frontier_start, bottom, gcursor}
+// then D array. Enables chunked runs (environment kills long jobs).
+static long frontier_start_g = 0;
+static int bottom_g = -1, gcursor_g = -1;
+
+static void dump_state (const char *f) {
+  FILE *o = fopen (f, "wb");
+  long hdr[5] = { W, nd, frontier_start_g, bottom_g, gcursor_g };
+  fwrite (hdr, sizeof hdr, 1, o);
+  fwrite (D, sizeof (Cl), nd, o);
+  fclose (o);
+}
+static int load_state (const char *f) {
+  FILE *o = fopen (f, "rb");
+  if (!o) return 0;
+  long hdr[5];
+  if (fread (hdr, sizeof hdr, 1, o) != 1) { fclose (o); return 0; }
+  W = hdr[0]; nd = hdr[1]; frontier_start_g = hdr[2];
+  bottom_g = hdr[3]; gcursor_g = hdr[4];
+  cap = nd + (1 << 16);
+  D = malloc (cap * sizeof (Cl));
+  if (fread (D, sizeof (Cl), nd, o) != (size_t) nd) { fclose (o); return 0; }
+  fclose (o);
+  return 1;
+}
+
 int main (int argc, char **argv) {
-  const char *path = 0;
+  const char *path = 0, *state = 0;
+  int max_rounds = 1 << 30, geo_levels = 1 << 30, report_only = 0;
   for (int i = 1; i < argc; i++) {
     if (!strcmp (argv[i], "--width")) W = atoi (argv[++i]);
+    else if (!strcmp (argv[i], "--state")) state = argv[++i];
+    else if (!strcmp (argv[i], "--rounds")) max_rounds = atoi (argv[++i]);
+    else if (!strcmp (argv[i], "--geo-levels")) geo_levels = atoi (argv[++i]);
+    else if (!strcmp (argv[i], "--report")) report_only = 1;
     else path = argv[i];
   }
+  int resumed = state && load_state (state);
+  if (!resumed && !path) { fprintf (stderr, "need cnf or state\n"); return 1; }
+  if (!resumed) {
   FILE *f = fopen (path, "r");
   if (!f) { perror (path); return 1; }
   cap = 1 << 16; D = malloc (cap * sizeof (Cl));
@@ -64,11 +98,35 @@ int main (int argc, char **argv) {
     if (any) add_clause (p, n, 0);
   }
   fclose (f);
+  }                                      // end !resumed
 
-  // rounds: resolve frontier x alive
-  long frontier_start = 0;
-  int bottom = -1;
+  long frontier_start = frontier_start_g;
+  int bottom = bottom_g;
+  int rounds_done = 0;
+  if (report_only) goto report;
+  if (gcursor_g >= 0) goto geodesic;     // forward phase already done
+
+  // rounds: resolve frontier x alive (with per-round compaction of
+  // dead clauses — loops then run over ~antichain, not all-ever-added)
   while (1) {
+    if (rounds_done++ >= max_rounds) {   // checkpoint and exit
+      frontier_start_g = frontier_start; bottom_g = bottom;
+      dump_state (state);
+      printf ("{\"checkpoint\":\"forward\",\"nd\":%ld,\"bottom\":%d}\n",
+              nd, bottom);
+      return 0;
+    }
+    // compact: drop dead entries below the frontier boundary, keeping
+    // relative order; adjust frontier_start accordingly
+    {
+      long w2 = 0, fs_new = frontier_start;
+      for (long i = 0; i < nd; i++) {
+        if (!D[i].alive) { if (i < frontier_start) fs_new--; continue; }
+        D[w2++] = D[i];
+      }
+      nd = w2;
+      frontier_start = fs_new < 0 ? 0 : fs_new;
+    }
     long nd0 = nd;
     long fs = frontier_start;
     frontier_start = nd0;
@@ -100,7 +158,9 @@ int main (int argc, char **argv) {
     }
     if (bottom >= 0 || !progress) break;
   }
+  gcursor_g = bottom;                    // forward phase complete
 
+geodesic: ;
   long alive = 0;
   for (long i = 0; i < nd; i++) alive += D[i].alive;
 
@@ -108,9 +168,18 @@ int main (int argc, char **argv) {
   long gsize = 0;
   long waves[128]; memset (waves, 0, sizeof waves);
   if (bottom >= 0) {
-    for (long i = 0; i < nd; i++)
-      if (D[i].alive && D[i].p == 0 && D[i].n == 0) D[i].mark = 1;
-    for (int d = bottom; d > 0; d--) {
+    if (gcursor_g == bottom)
+      for (long i = 0; i < nd; i++)
+        if (D[i].alive && D[i].p == 0 && D[i].n == 0) D[i].mark = 1;
+    int glv = 0;
+    for (int d = gcursor_g; d > 0; d--) {
+      if (glv++ >= geo_levels) {         // checkpoint and exit
+        frontier_start_g = frontier_start; bottom_g = bottom;
+        gcursor_g = d;
+        dump_state (state);
+        printf ("{\"checkpoint\":\"geodesic\",\"cursor\":%d}\n", d);
+        return 0;
+      }
       for (long c = 0; c < nd; c++) {
         if (!D[c].alive || !D[c].mark || D[c].depth != d) continue;
         for (long i = 0; i < nd; i++) {
@@ -140,6 +209,17 @@ int main (int argc, char **argv) {
     }
     for (long i = 0; i < nd; i++)
       if (D[i].alive && D[i].mark) { gsize++; waves[D[i].depth]++; }
+    gcursor_g = 0;
+    if (state) { frontier_start_g = frontier_start; bottom_g = bottom;
+                 dump_state (state); }
+  }
+
+report: ;
+  if (report_only) {
+    bottom = bottom_g;
+    for (long i = 0; i < nd; i++)
+      if (D[i].alive && D[i].mark) { gsize++; waves[D[i].depth]++; }
+    for (long i = 0; i < nd; i++) alive += D[i].alive;
   }
 
   printf ("{\"width\":%d,\"depth\":%s%d,\"antichain\":%ld,"
