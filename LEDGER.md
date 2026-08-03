@@ -90,3 +90,32 @@ verification, reproduction). Newest last.
    score worse — the value, once again, lives behind terrain the
    greedy signal cannot see.
    ([affine-surgery/RESULTS.md](affine-surgery/RESULTS.md))
+10. **[S5 proof-space, closed — Ending 1, negative form]** In the
+    derivability-wavefront space — the one proof-space candidate
+    surviving formalization (Theorem I: monotone spaces have no
+    geometry; DAG-rewrite connectivity open) — no registered
+    observable separates ER from resolution at exactly measurable
+    scales: at the PHP(4) anchor, Cook's definitions leave depth
+    essentially unchanged and enlarge every size quantity (geodesic
+    1.9–3.1×, fronts wider at every level), and at PHP(5) the ER
+    cell's front growth itself exceeds exact reach. Sixth measured
+    instance of the finite-size inversion: the asymptotic advantage's
+    machinery is pure overhead below its crossover. Descriptive,
+    non-bar finding banked: the definitions' only in-space finite-size
+    value is width-relief (T_Cook refuting where T₀'s width frontier
+    closes). With Theorems A–I and streams S1–S4, this completes the
+    arc: ER's power is invisible in every substrate at every exactly
+    measurable scale, with the finite-size inversion as the measured
+    reason why.
+    ([proof-space/RESULTS.md](proof-space/RESULTS.md))
+    *[Post-recording annotation (measurement, agent): the banked
+    width-relief clause fails its check. At the only cell it can
+    refer to — PHP(5) w=3, where T₀'s frontier closes at 45 clauses —
+    T_Cook's frontier ALSO closes without ⊥, at 1,181 clauses: 26×
+    the front volume and still no refutation
+    (`proof-space/scripts/reproduce.py`, width-relief check). At
+    every measured width the cascade relieves nothing; the overhead
+    sign holds even where nothing refutes. This strengthens rather
+    than weakens the entry's arc — the one exception it granted the
+    definitions is not there — but the clause as banked is
+    contradicted by measurement. Lead emendation pending.]*
