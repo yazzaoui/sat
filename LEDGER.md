@@ -101,21 +101,24 @@ verification, reproduction). Newest last.
     cell's front growth itself exceeds exact reach. Sixth measured
     instance of the finite-size inversion: the asymptotic advantage's
     machinery is pure overhead below its crossover. Descriptive,
-    non-bar finding banked: the definitions' only in-space finite-size
-    value is width-relief (T_Cook refuting where T₀'s width frontier
-    closes). With Theorems A–I and streams S1–S4, this completes the
-    arc: ER's power is invisible in every substrate at every exactly
-    measurable scale, with the finite-size inversion as the measured
-    reason why.
+    non-bar finding banked: at every width computable, the
+    definitions relieve nothing — T_Cook's frontier closes without ⊥
+    at 26× the front volume where T₀'s closes at 45 clauses; the
+    overhead sign holds even where nothing refutes. With Theorems A–I
+    and streams S1–S4, this completes the arc: ER's power is
+    invisible in every substrate at every exactly measurable scale,
+    with the finite-size inversion as the measured reason why.
     ([proof-space/RESULTS.md](proof-space/RESULTS.md))
-    *[Post-recording annotation (measurement, agent): the banked
-    width-relief clause fails its check. At the only cell it can
-    refer to — PHP(5) w=3, where T₀'s frontier closes at 45 clauses —
-    T_Cook's frontier ALSO closes without ⊥, at 1,181 clauses: 26×
-    the front volume and still no refutation
-    (`proof-space/scripts/reproduce.py`, width-relief check). At
-    every measured width the cascade relieves nothing; the overhead
-    sign holds even where nothing refutes. This strengthens rather
-    than weakens the entry's arc — the one exception it granted the
-    definitions is not there — but the clause as banked is
-    contradicted by measurement. Lead emendation pending.]*
+    *[Emendation record (lead, on agent measurement): as first
+    banked, this entry granted the definitions one finite-size value
+    — width-relief, "T_Cook refuting where T₀'s width frontier
+    closes." That clause was the lead's inference from a
+    half-finished cell ("T₀ unreachable, T_Cook presumably
+    reachable" read into data showing only the first half). The
+    agent ran the one cell that could check it before banking the
+    sentence: T_Cook's frontier also closes without ⊥ (antichain
+    1,181 vs 45 — `proof-space/scripts/reproduce.py`, width-relief
+    check). Clause struck; the banked finding above is the measured
+    one. The annotate-the-lead's-claim mechanism firing on the final
+    entry of the arc — the map now grants the definitions nothing at
+    measurable scale: no depth, no size, no width.]*

@@ -12,6 +12,6 @@ and `--slow` (+2 checks, ~16 min: the PHP(5) w=4 baseline and the
 decision-cell growth measurement). Probe: `cc -O3 -o probes/depthdp
 probes/depthdp.c`.
 
-Ledger sentence: entry 10, recorded verbatim with one post-recording
-measurement annotation (width-relief clause contradicted; lead
-emendation pending).
+Ledger sentence: entry 10, recorded verbatim; the width-relief clause
+was measured false pre-banking and struck by lead emendation (record
+on the entry — the annotation mechanism's final firing).

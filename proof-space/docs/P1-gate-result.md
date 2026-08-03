@@ -45,16 +45,17 @@ the quantity that had to carry the separation if depth couldn't — is
 what pushes the cell beyond exact computation, in the overhead
 direction.
 
-## Width-relief annotation (ledger entry 10)
+## Width-relief clause: measured false, emended (ledger entry 10)
 
-The closure sentence banked a descriptive finding: "the definitions'
-only in-space finite-size value is width-relief (T_Cook refuting where
-T₀'s width frontier closes)." **Measurement contradicts it**: at the
-only cell it can refer to (PHP(5) w=3, where T₀ closes), T_Cook's
-frontier also closes without ⊥ — 1,181 clauses of front against T₀'s
-45, and no refutation. At every measured width the cascade relieves
-nothing; the overhead sign holds even where nothing refutes. Flagged
-to the lead for emendation; recorded as an annotation on entry 10.
+The closure sentence as first banked granted the definitions one
+descriptive finding: width-relief ("T_Cook refuting where T₀'s width
+frontier closes"). **Measurement contradicted it** at the only cell it
+can refer to (PHP(5) w=3, where T₀ closes at 45 clauses): T_Cook's
+frontier also closes without ⊥ — 1,181 clauses of front and no
+refutation. The lead struck the clause (emendation record on entry
+10); the banked descriptive finding is now the measured one: at every
+width computable, the definitions relieve nothing; the overhead sign
+holds even where nothing refutes.
 
 ## Verdict (registered rule, applied mechanically)
 
